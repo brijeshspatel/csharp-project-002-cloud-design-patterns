@@ -1,0 +1,40 @@
+<Project>
+
+  <!--
+    Settings shared by every project in this solution.
+
+    Declared once rather than repeated in each project file. Forty-four copies
+    of the same target framework is forty-four chances for one of them to drift,
+    and nothing would report the disagreement until something failed to build.
+  -->
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <NeutralLanguage>en-GB</NeutralLanguage>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!--
+      Warnings fail the build. A reference implementation that compiles with
+      warnings teaches the warnings along with the patterns.
+    -->
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!--
+      Analyser rules are suppressed in the projects that need them, never here.
+
+      A solution wide suppression exempts all forty-four patterns for the sake
+      of the few that earned it, and would quietly accept the same violation in
+      code written later. Each suppression therefore lives in the project that
+      needs it, with the reason beside the code the reason is about.
+    -->
+  </PropertyGroup>
+
+</Project>

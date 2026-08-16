@@ -1,0 +1,30 @@
+<Project>
+
+  <!--
+    Package versions for the whole solution, declared once.
+
+    With central management on, a project says which packages it needs and this
+    file says which version everyone gets. A project that pins its own version
+    fails the build rather than drifting quietly, which is the point: twenty-four
+    projects agreeing by accident is not the same as twenty-four projects agreeing
+    by construction.
+  -->
+
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+
+  <!--
+    Every package here is test infrastructure. The twenty-three pattern
+    projects have no package dependencies at all, which is deliberate: a
+    reference implementation of a design pattern should be readable without
+    the reader having to learn a library first.
+  -->
+  <ItemGroup>
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+    <PackageVersion Include="xunit" Version="2.9.3" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.4" />
+    <PackageVersion Include="coverlet.collector" Version="6.0.4" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,46 @@
+<Project>
+
+  <!--
+    Shared test configuration.
+
+    This lives in Directory.Build.targets rather than Directory.Build.props
+    because MSBuild imports .props before a project file is read and .targets
+    after it. A test project declares IsTestProject in its own body, so only
+    the later import can see it.
+
+    Declared once for all forty-four test projects. The alternative, a
+    Directory.Build.props beside each one, is forty-four copies of the same
+    framework version waiting to disagree.
+  -->
+
+  <PropertyGroup Condition="'$(IsTestProject)' == 'true'">
+    <IsPackable>false</IsPackable>
+    <!--
+      CA1707 forbids underscores in member names. It is a rule about
+      identifiers other people call, and nobody calls a test method: the
+      runner does. Underscores are what make a failing test name readable in a
+      run report, so the rule is relaxed for test projects and nowhere else.
+    -->
+    <NoWarn>$(NoWarn);CA1707</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(IsTestProject)' == 'true'">
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+    <PackageReference Include="coverlet.collector" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(IsTestProject)' == 'true'">
+    <Using Include="Xunit" />
+    <!--
+      One shared source file compiled into every test project. It asserts that
+      each test assembly really is wired to the pattern it is named for, so a
+      project whose reference had been removed fails instead of reporting
+      success while testing nothing.
+    -->
+    <Compile Include="$(MSBuildThisFileDirectory)build\ScaffoldingTests.cs"
+             Link="ScaffoldingTests.cs" />
+  </ItemGroup>
+
+</Project>

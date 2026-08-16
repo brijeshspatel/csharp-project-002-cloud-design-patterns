@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+
+  <!--
+    Coverage settings for the whole solution, declared once.
+
+    Nothing is excluded. Excluding the demonstration entry points would raise the
+    reported figure without a single extra line being tested, and a coverage
+    number that moves because of what it stopped counting is worse than no
+    number at all. If a category of code is later judged not to belong in the
+    measurement, that is a decision to record with its reason, not a default.
+
+    The command that uses this file is recorded in the increment's completion
+    report rather than here, because an XML comment cannot contain a double
+    hyphen and the command is made of them.
+  -->
+
+  <DataCollectionRunSettings>
+    <DataCollectors>
+      <DataCollector friendlyName="XPlat code coverage">
+        <Configuration>
+          <!--
+            Cobertura only, and no deterministic report. Asking for the opencover
+            format alongside a deterministic report throws inside the collector,
+            and the throw does not fail the run: every assembly reported a pass
+            while not one coverage file was written. The combination was removed
+            rather than worked around, and the increment verifies that the
+            report files exist rather than trusting the exit code.
+          -->
+          <Format>cobertura</Format>
+        </Configuration>
+      </DataCollector>
+    </DataCollectors>
+  </DataCollectionRunSettings>
+
+</RunSettings>
