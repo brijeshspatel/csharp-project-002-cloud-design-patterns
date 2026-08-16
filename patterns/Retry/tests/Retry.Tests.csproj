@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!--
+      Declaring this is what pulls in the shared test configuration: the
+      framework, runner, assertion library, coverage collector and the shared
+      scaffolding test are added by Directory.Build.targets at the root, for
+      any project that sets it.
+    -->
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\src\Retry.csproj" />
+  </ItemGroup>
+
+</Project>

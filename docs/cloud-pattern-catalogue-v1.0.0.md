@@ -57,7 +57,7 @@ call can fail.
 
 | Pattern | What it does | Pillars |
 |---|---|---|
-| Retry | Enable applications to handle anticipated temporary failures by retrying failed operations. | Reliability |
+| [Retry](../patterns/Retry/README.md) | Enable applications to handle anticipated temporary failures by retrying failed operations. | Reliability |
 | Circuit Breaker | Handle faults that might take a variable amount of time to fix when an application connects to a remote service or resource. | Reliability, Performance Efficiency |
 | Throttling | Control the consumption of resources from applications, tenants, or services. | Reliability, Security, Cost Optimization, Performance Efficiency |
 | Rate Limiting | Avoid or minimize throttling errors by controlling the consumption of resources. | Reliability |
