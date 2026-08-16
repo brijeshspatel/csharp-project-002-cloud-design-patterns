@@ -1,0 +1,11 @@
+{
+  "_comment": "Deliberate exceptions to the convention checker, scoped to this repository. The checker loads this file from the repository it is checking, so nothing here relaxes the rule anywhere else. Every entry needs a reason: a word allowed here is allowed throughout this repository, because the checker has no finer granularity than the word.",
+
+  "allow_words": [
+    "prioritize"
+  ],
+
+  "_reasons": {
+    "prioritize": "Quoted, not written. It appears in the Priority Queue summary in docs/cloud-pattern-catalogue-v1.0.0.md, which reproduces the Microsoft catalogue's own wording as published on 2026-08-16. The catalogue's frozen-citation rule requires a citation be reproduced rather than corrected, and re-spelling a quotation makes it a paraphrase that still claims to be a quotation."
+  }
+}

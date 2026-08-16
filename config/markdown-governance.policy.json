@@ -1,0 +1,223 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "1.0.0",
+  "_note": "This project's own documentation governance. It is deliberately separate from the workspace policy above it: a nested git repository's files are invisible to the outer repository's `git ls-files`, and this checker scans exactly that, so one policy cannot span both trees. Enforcement is local -- a pre-commit hook that is not tracked, and so is absent from any clone.",
+  "central_folder": "docs",
+  "scan": {
+    "command": [
+      "git",
+      "ls-files",
+      "*.md",
+      "*.markdown"
+    ]
+  },
+  "classes": {
+    "excluded": [
+      "**/bin/**",
+      "**/obj/**",
+      "**/TestResults/**"
+    ],
+    "protected": [
+      "CHANGELOG.md",
+      "LICENSE.md",
+      "**/README.md"
+    ],
+    "generated": [],
+    "governed_central": [
+      "docs/**"
+    ]
+  },
+  "markdown_registry": {
+    "version": "1.0.0",
+    "permitted": [
+      {
+        "path": "docs/**",
+        "reason": "the catalogue index and any documentation that describes the solution as a whole rather than one pattern",
+        "governed": true
+      },
+      {
+        "path": "patterns/*/docs/**",
+        "reason": "each pattern's own documentation and supporting learning material, kept with the pattern so the folder is self-contained. Graded by tools/pattern_docs_check.py, which applies the same naming, frontmatter and version rules used under docs/ -- mdgs_check.py cannot, because it grades paths anchored at the repository's own docs/ folder and nothing else",
+        "governed": true
+      },
+      {
+        "path": ".claude/**",
+        "reason": "inherited from the governance baseline, which a repository policy may add to but never narrow. This project contains no such folder and adds none",
+        "governed": false
+      },
+      {
+        "path": ".github/**",
+        "reason": "inherited from the governance baseline. Reserved for community health files if this project is ever published",
+        "governed": false
+      }
+    ],
+    "permitted_basenames": [
+      {
+        "name": "README.md",
+        "reason": "each pattern documents itself in the folder holding its code, so a reader studying that folder never has to leave it to learn what is being demonstrated. This is stated as a basename rule rather than a permitted folder because the path registry is folder-scoped and pattern documentation deliberately has no folder of its own -- it sits beside the code. It also serves its conventional purpose as a folder index at any depth"
+      },
+      {
+        "name": "CLAUDE.md",
+        "reason": "inherited from the governance baseline. This project contains no such file"
+      },
+      {
+        "name": "AGENTS.md",
+        "reason": "inherited from the governance baseline. This project contains no such file"
+      },
+      {
+        "name": "CHANGELOG.md",
+        "reason": "release history, conventionally at the repository root"
+      },
+      {
+        "name": "LICENSE.md",
+        "reason": "licence text, conventionally at the repository root"
+      }
+    ]
+  },
+  "naming": {
+    "record_grammar": "^\\d{4}-\\d{2}-\\d{2}-[a-z]+-[a-z0-9-]+-v\\d+\\.\\d+\\.\\d+\\.md$",
+    "durable_grammar": "^[a-z0-9-]+-v\\d+\\.\\d+\\.\\d+\\.md$",
+    "adr_grammar": "^\\d{4}-[a-z0-9-]+\\.md$",
+    "folder_grammar": "^[a-z0-9-]+$",
+    "type_vocabulary": [
+      "spec",
+      "review",
+      "plan",
+      "adr",
+      "policy",
+      "arch",
+      "report",
+      "handoff",
+      "guide",
+      "runbook",
+      "index",
+      "prompt",
+      "reference",
+      "explanation",
+      "approval"
+    ],
+    "subject_max_len": 48,
+    "filename_max_len": 96,
+    "path_max_len": 200,
+    "max_depth_below_docs": 3
+  },
+  "placement": {
+    "_note": "Placement decides where a document type lives in the central docs/ tree. It does not apply to patterns/*/docs/, where the pattern folder is the placement: a document there belongs to the pattern that owns the folder, and moving it by type would defeat the reason it is there.",
+    "index": "docs",
+    "guide": "docs/how-to",
+    "runbook": "docs/how-to",
+    "reference": "docs/reference",
+    "policy": "docs/reference",
+    "explanation": "docs/explanation",
+    "arch": "docs/explanation/architecture",
+    "adr": "docs/decisions",
+    "spec": "docs/records",
+    "plan": "docs/records",
+    "review": "docs/records",
+    "handoff": "docs/records",
+    "prompt": "docs/records",
+    "report": "docs/records",
+    "approval": "docs/records"
+  },
+  "report_domains": [],
+  "versioning": {
+    "living_types": [
+      "policy",
+      "arch",
+      "guide",
+      "runbook",
+      "index",
+      "reference",
+      "explanation"
+    ],
+    "point_in_time_types": [
+      "spec",
+      "review",
+      "plan",
+      "adr",
+      "report",
+      "handoff",
+      "prompt"
+    ],
+    "unversioned_classes": [
+      "protected",
+      "generated",
+      "manual-review"
+    ]
+  },
+  "metadata": {
+    "required_keys": [
+      "doc_id",
+      "title",
+      "type",
+      "version",
+      "status",
+      "created",
+      "updated"
+    ],
+    "optional_keys": [
+      "owner",
+      "source",
+      "supersedes",
+      "superseded_by",
+      "change_summary"
+    ],
+    "status_vocabulary": [
+      "draft",
+      "active",
+      "superseded",
+      "archived"
+    ]
+  },
+  "references": {
+    "search_extensions": [
+      ".md",
+      ".cs",
+      ".csproj",
+      ".props",
+      ".json",
+      ".runsettings"
+    ],
+    "auto_update": [
+      "**/*.md",
+      "docs/README.md"
+    ],
+    "report_only": [
+      "**/*.cs"
+    ],
+    "never_touch": [
+      ".git/**",
+      "**/bin/**",
+      "**/obj/**"
+    ]
+  },
+  "migration": {
+    "dry_run_default": true,
+    "approval_threshold_files": 10,
+    "allow_untracked": false
+  },
+  "duplicates": {
+    "identity_key": [
+      "created",
+      "type",
+      "subject"
+    ],
+    "similarity_threshold": 0.85,
+    "action": "report-only"
+  },
+  "standards": {
+    "taxonomy": "Diataxis",
+    "adr": "MADR 4.0",
+    "versioning": "SemVer 2.0.0",
+    "changelog": "Keep a Changelog 1.1.0",
+    "dates": "ISO 8601",
+    "markdown": "CommonMark 0.31",
+    "commits": "Conventional Commits 1.0.0",
+    "normative_keywords": "RFC 2119 / RFC 8174",
+    "architecture": "C4 model / arc42",
+    "language": "en-GB",
+    "protected_branches": [
+      "main"
+    ]
+  }
+}
