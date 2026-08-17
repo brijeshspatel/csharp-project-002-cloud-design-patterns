@@ -70,6 +70,10 @@
     <Project Path="patterns/CQRS/src/CQRS.csproj" />
     <Project Path="patterns/CQRS/tests/CQRS.Tests.csproj" />
   </Folder>
+  <Folder Name="/3 - Data management/EventSourcing/">
+    <Project Path="patterns/EventSourcing/src/EventSourcing.csproj" />
+    <Project Path="patterns/EventSourcing/tests/EventSourcing.Tests.csproj" />
+  </Folder>
   <Folder Name="/3 - Data management/IndexTable/">
     <Project Path="patterns/IndexTable/src/IndexTable.csproj" />
     <Project Path="patterns/IndexTable/tests/IndexTable.Tests.csproj" />
