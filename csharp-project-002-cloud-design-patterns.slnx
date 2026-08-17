@@ -90,6 +90,10 @@
     <Project Path="patterns/StaticContentHosting/src/StaticContentHosting.csproj" />
     <Project Path="patterns/StaticContentHosting/tests/StaticContentHosting.Tests.csproj" />
   </Folder>
+  <Folder Name="/3 - Data management/ValetKey/">
+    <Project Path="patterns/ValetKey/src/ValetKey.csproj" />
+    <Project Path="patterns/ValetKey/tests/ValetKey.Tests.csproj" />
+  </Folder>
   <Folder Name="/4 - Coordination/" />
   <Folder Name="/5 - Edge and gateway/" />
   <Folder Name="/6 - Deployment and topology/" />
