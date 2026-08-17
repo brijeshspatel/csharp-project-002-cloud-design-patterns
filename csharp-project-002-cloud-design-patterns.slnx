@@ -1,5 +1,9 @@
 <Solution>
   <Folder Name="/1 - Resilience/" />
+  <Folder Name="/1 - Resilience/CircuitBreaker/">
+    <Project Path="patterns/CircuitBreaker/src/CircuitBreaker.csproj" />
+    <Project Path="patterns/CircuitBreaker/tests/CircuitBreaker.Tests.csproj" />
+  </Folder>
   <Folder Name="/1 - Resilience/Retry/">
     <Project Path="patterns/Retry/src/Retry.csproj" />
     <Project Path="patterns/Retry/tests/Retry.Tests.csproj" />
