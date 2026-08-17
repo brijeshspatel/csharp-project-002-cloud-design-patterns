@@ -124,6 +124,10 @@
     <Project Path="patterns/BackendsForFrontends/src/BackendsForFrontends.csproj" />
     <Project Path="patterns/BackendsForFrontends/tests/BackendsForFrontends.Tests.csproj" />
   </Folder>
+  <Folder Name="/5 - Edge and gateway/Gatekeeper/">
+    <Project Path="patterns/Gatekeeper/src/Gatekeeper.csproj" />
+    <Project Path="patterns/Gatekeeper/tests/Gatekeeper.Tests.csproj" />
+  </Folder>
   <Folder Name="/5 - Edge and gateway/GatewayAggregation/">
     <Project Path="patterns/GatewayAggregation/src/GatewayAggregation.csproj" />
     <Project Path="patterns/GatewayAggregation/tests/GatewayAggregation.Tests.csproj" />
