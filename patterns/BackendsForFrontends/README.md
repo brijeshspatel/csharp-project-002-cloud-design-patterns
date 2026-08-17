@@ -78,10 +78,11 @@ building two catalogues that drift — the backends shape a response, they do no
 Two backends serving identical shapes would be duplication; two that move independently are what
 removes the negotiation.
 
-**What this is not.** Gateway Aggregation combines several services into one response for whatever
-client asks; this is about *which* client is asking. Gateway Routing forwards to one service behind
-one endpoint. Gateway Offloading moves cross-cutting work to the edge — and remains useful here, in
-front of both backends.
+**What this is not.** [Gateway Aggregation](../GatewayAggregation/README.md) combines several
+services into one response for whatever client asks; this is about *which* client is asking.
+[Gateway Routing](../GatewayRouting/README.md) forwards to one service behind one endpoint.
+[Gateway Offloading](../GatewayOffloading/README.md) moves cross-cutting work to the edge — and
+remains useful here, in front of both backends.
 
 ## Advantages and trade-offs
 
@@ -107,7 +108,8 @@ second domain. And a count that grows with clients.
   de-duplicating it too eagerly recreates the shared component.
 * **Group by client need, not by device.** Two clients with the same needs share a backend even if
   one is a phone; the axis is what the interface requires.
-* **Put cross-cutting concerns in front of both**, via Gateway Offloading, rather than implementing
+* **Put cross-cutting concerns in front of both**, via
+  [Gateway Offloading](../GatewayOffloading/README.md), rather than implementing
   authentication twice.
 
 ## Real-world cloud scenarios

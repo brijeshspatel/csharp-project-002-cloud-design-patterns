@@ -81,10 +81,10 @@ outage.
 **The application contains no metrics code.** Its own record of work has no observations in it; the
 telemetry exists because something was deployed beside it rather than because it cooperated.
 
-**What this is not.** Ambassador is one *job* this shape does — outbound calls with retry policy
-attached — and is conventionally deployed exactly like this. Sidecar is the shape itself, which also
-carries metrics, configuration, certificates and log shipping, none of which involves calling
-anything on the application's behalf.
+**What this is not.** [Ambassador](../Ambassador/README.md) is one *job* this shape does —
+outbound calls with retry policy attached — and is conventionally deployed exactly like this.
+Sidecar is the shape itself, which also carries metrics, configuration, certificates and log
+shipping, none of which involves calling anything on the application's behalf.
 
 ## Advantages and trade-offs
 

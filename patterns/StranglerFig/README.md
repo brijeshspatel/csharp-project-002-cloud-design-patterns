@@ -79,9 +79,10 @@ says.
 **Both systems serve at once, and that is the middle of every real migration** rather than an
 awkward phase to be minimised.
 
-**What this is not.** Anti-Corruption Layer is a translation *boundary* that may stand for a decade
-with no migration planned; this is a *strategy* whose whole purpose is to end. The two are commonly
-used together — the layer serves whatever has not moved — and neither requires the other.
+**What this is not.** [Anti-Corruption Layer](../AntiCorruptionLayer/README.md) is a translation
+*boundary* that may stand for a decade with no migration planned; this is a *strategy* whose whole
+purpose is to end. The two are commonly used together — the layer serves whatever has not moved —
+and neither requires the other.
 
 ## Advantages and trade-offs
 

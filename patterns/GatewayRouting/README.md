@@ -70,11 +70,13 @@ gateway that falls through to something plausible converts a client typo into a 
 the wrong service, and the resulting failure gets attributed to that service rather than to the
 routing.
 
-**What this is not.** Gateway Aggregation calls several services and combines their answers; this
-forwards one request to one service. Gateway Offloading moves cross-cutting work off the services;
-this does none of their work at all. Gatekeeper exists to make the back end unreachable; these
-services are perfectly reachable and simply are not addressed directly. Backends for Frontends has
-no single endpoint, which is the whole of its point.
+**What this is not.** [Gateway Aggregation](../GatewayAggregation/README.md) calls several
+services and combines their answers; this forwards one request to one service.
+[Gateway Offloading](../GatewayOffloading/README.md) moves cross-cutting work off the services; this
+does none of their work at all. [Gatekeeper](../Gatekeeper/README.md) exists to make the back end
+unreachable; these services are perfectly reachable and simply are not addressed directly.
+[Backends for Frontends](../BackendsForFrontends/README.md) has no single endpoint, which is the
+whole of its point.
 
 ## Advantages and trade-offs
 

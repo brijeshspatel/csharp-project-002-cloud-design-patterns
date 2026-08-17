@@ -89,9 +89,10 @@ host, same lifecycle, separate process — and that is not concealed here. Sidec
 collect metrics or supply configuration and never make an outbound call, and an ambassador's logic
 is the same whether deployed alongside or as a shared proxy.
 
-**What this is not.** Retry, in tier 1, is the policy itself — what to retry, how often, with what
-backoff. This pattern is about *where that policy lives*: outside the application, in a component
-the application does not configure.
+**What this is not.** [Retry](../Retry/README.md), in tier 1, is the policy itself — what to retry,
+how often, with what backoff. This pattern is about *where that policy lives*: outside the
+application, in a component the application does not configure. It is conventionally deployed as a
+[Sidecar](../Sidecar/README.md), which is the shape rather than the job.
 
 ## Advantages and trade-offs
 
@@ -112,9 +113,9 @@ the application does.
 * **Give the ambassador a timeout shorter than the caller's**, so the caller is not waiting on a
   helper that is waiting on a network.
 * **Add jitter to backoff.** Synchronised retries from many instances are how a struggling service
-  is finished off — see Retry.
+  is finished off — see [Retry](../Retry/README.md).
 * **Add a circuit breaker for a backend that is properly down**, so attempts stop rather than
-  continuing on every call — see Circuit Breaker.
+  continuing on every call — see [Circuit Breaker](../CircuitBreaker/README.md).
 * **Report what the ambassador did.** The application cannot see the retries, so the helper's
   telemetry is the only record that they happened; without it, latency becomes inexplicable.
 * **Version and roll out the ambassador carefully.** It is deployed alongside every application

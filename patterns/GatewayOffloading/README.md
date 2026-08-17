@@ -44,7 +44,7 @@ implementations; done once at the proxy it is two, so four do not have to exist.
   it only looks it.
 * **The services must be safe when called directly.** Offloading assumes traffic arrives via the
   edge; if internal callers can bypass it, the protection is optional — and if that matters, the
-  pattern you want is Gatekeeper.
+  pattern you want is [Gatekeeper](../Gatekeeper/README.md).
 
 ## Architecture and components
 
@@ -75,11 +75,12 @@ have taken, and the proxy would be a hop rather than a saving.
 **Compression happens at the edge because that is what knows the transport.** A service compressing
 its own responses is guessing on behalf of a client it never talks to.
 
-**What this is not.** Gatekeeper also refuses at the edge, and its subject is entirely different:
-there the back end is unreachable and holds a credential the edge does not, so a compromised edge
-yields nothing. Here the services are perfectly reachable and simply have less code in them. Gateway
-Routing decides *which* service; this does work on the way. Gateway Aggregation calls several
-services; this forwards to one.
+**What this is not.** [Gatekeeper](../Gatekeeper/README.md) also refuses at the edge, and its
+subject is entirely different: there the back end is unreachable and holds a credential the edge
+does not, so a compromised edge yields nothing. Here the services are perfectly reachable and simply
+have less code in them. [Gateway Routing](../GatewayRouting/README.md) decides *which* service; this
+does work on the way. [Gateway Aggregation](../GatewayAggregation/README.md) calls several services;
+this forwards to one.
 
 ## Advantages and trade-offs
 
@@ -99,7 +100,7 @@ more and more at the edge, until the gateway holds logic nobody can safely chang
   belongs at the edge. Authorisation — may *this user* do *this* to *this order*? — does not.
 * **Make bypass impossible, or accept it.** If services are reachable directly, offloaded protection
   is advisory. Network policy, private endpoints or mutual TLS close that; where the closure is the
-  point, the pattern is Gatekeeper.
+  point, the pattern is [Gatekeeper](../Gatekeeper/README.md).
 * **Pass the edge's findings downstream.** A validated identity should reach the service as a
   trusted header, so the service need not re-validate to know who is calling.
 * **Do not let the edge parse bodies.** That is where gateways become applications.

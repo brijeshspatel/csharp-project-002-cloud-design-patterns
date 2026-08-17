@@ -44,7 +44,8 @@ The saving is not computational. The same four calls happen; they happen somewhe
   concurrent requests over one HTTP/2 connection has already solved most of this.
 * **One backend is slow.** Aggregation makes the response as slow as the slowest call unless the
   gateway is careful — see below.
-* **Different clients need different combinations.** That is Backends for Frontends, and forcing it
+* **Different clients need different combinations.** That is
+  [Backends for Frontends](../BackendsForFrontends/README.md), and forcing it
   into one aggregating endpoint produces a response every client over-fetches.
 
 ## Architecture and components
@@ -75,11 +76,12 @@ has no offers, which is a different statement and a false one.
 **One failure is not partial.** No profile means no screen, and the remaining backends are not
 asked — there is nothing for them to answer about.
 
-**What this is not.** Gateway Routing forwards one request to one service; this knows exactly which
-four to call and calls all of them. Gateway Offloading does work the services would each otherwise
-implement; this does no part of their work. Gatekeeper exists to make back ends unreachable.
-Backends for Frontends would give mobile and desktop clients different backends rather than one
-aggregating endpoint.
+**What this is not.** [Gateway Routing](../GatewayRouting/README.md) forwards one request to one
+service; this knows exactly which four to call and calls all of them.
+[Gateway Offloading](../GatewayOffloading/README.md) does work the services would each otherwise
+implement; this does no part of their work. [Gatekeeper](../Gatekeeper/README.md) exists to make
+back ends unreachable. [Backends for Frontends](../BackendsForFrontends/README.md) would give mobile
+and desktop clients different backends rather than one aggregating endpoint.
 
 ## Advantages and trade-offs
 
@@ -105,7 +107,7 @@ which is the pressure Backends for Frontends resolves.
 * **Report what failed** in the response. A client that can distinguish "no offers" from "offers
   unavailable" can retry, cache or show a placeholder.
 * **Consider a circuit breaker per backend** so a service that is down stops being called on every
-  request — see Circuit Breaker.
+  request — see [Circuit Breaker](../CircuitBreaker/README.md).
 * **Cache what tolerates it.** Offers change slowly; profiles change rarely; baskets change
   constantly.
 * **Resist per-client shapes.** When two clients want materially different responses, the answer is

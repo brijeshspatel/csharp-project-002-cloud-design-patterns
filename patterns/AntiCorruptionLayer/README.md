@@ -72,9 +72,10 @@ honest artefact of the pattern.
 **Units are the quietest defect.** Pence crossing a boundary as pounds produces a system where
 everything runs and every number is wrong by a factor of a hundred.
 
-**What this is not.** Strangler Fig is a migration *strategy* — routing that shifts feature by
-feature until the legacy system is empty. This is a *boundary*, and it may stand for a decade with
-no migration planned. The two are commonly used together and neither requires the other.
+**What this is not.** [Strangler Fig](../StranglerFig/README.md) is a migration *strategy* —
+routing that shifts feature by feature until the legacy system is empty. This is a *boundary*, and
+it may stand for a decade with no migration planned. The two are commonly used together and neither
+requires the other.
 
 ## Advantages and trade-offs
 
@@ -110,7 +111,7 @@ point it becomes a third system nobody owns.
 * Integrating an acquired company's systems without adopting their model.
 * Wrapping a third-party service whose API shape you would not have chosen.
 * The boundary between a legacy monolith and the services being carved out of it — usually
-  alongside Strangler Fig.
+  alongside [Strangler Fig](../StranglerFig/README.md).
 
 ## In Azure
 

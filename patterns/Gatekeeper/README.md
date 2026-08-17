@@ -80,11 +80,12 @@ half-sanitising that makes a private side believe it is safe when it is not.
 **Distinct refusal reasons**, because "rejected" tells an operator nothing about whether this is an
 attack, a client bug or a limit set too low.
 
-**What this is not.** Gateway Offloading also refuses at the edge, and its subject is duplicated
-code: its services are perfectly reachable and simply have less in them. Here reachability *is* the
-subject. Gateway Routing decides which service; Gateway Aggregation calls several; neither makes a
-claim about what an attacker gets. Valet Key is the opposite trade — there the client is given
-direct, scoped access to storage on purpose.
+**What this is not.** [Gateway Offloading](../GatewayOffloading/README.md) also refuses at the
+edge, and its subject is duplicated code: its services are perfectly reachable and simply have less
+in them. Here reachability *is* the subject. [Gateway Routing](../GatewayRouting/README.md) decides
+which service; [Gateway Aggregation](../GatewayAggregation/README.md) calls several; neither makes a
+claim about what an attacker gets. [Valet Key](../ValetKey/README.md) is the opposite trade — there
+the client is given direct, scoped access to storage on purpose.
 
 ## Advantages and trade-offs
 
