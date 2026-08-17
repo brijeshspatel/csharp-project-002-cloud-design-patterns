@@ -123,7 +123,7 @@ examples model the topology in process rather than deploying it.
 | [Gateway Routing](../patterns/GatewayRouting/README.md) | Route requests to multiple services by using a single endpoint. | Reliability, Operational Excellence, Performance Efficiency |
 | [Gateway Aggregation](../patterns/GatewayAggregation/README.md) | Use a gateway to aggregate multiple individual requests into a single request. | Reliability, Security, Operational Excellence, Performance Efficiency |
 | [Gateway Offloading](../patterns/GatewayOffloading/README.md) | Offload shared or specialized service functionality to a gateway proxy. | Reliability, Security, Cost Optimization, Operational Excellence, Performance Efficiency |
-| Backends for Frontends | Create separate backend services for specific frontend applications or interfaces. | Reliability, Security, Performance Efficiency |
+| [Backends for Frontends](../patterns/BackendsForFrontends/README.md) | Create separate backend services for specific frontend applications or interfaces. | Reliability, Security, Performance Efficiency |
 | Gatekeeper | Protect applications and services by using a dedicated host instance to validate and sanitize requests before forwarding them to private back ends. | Security, Performance Efficiency |
 | Ambassador | Create helper services that send network requests on behalf of a consumer service or application. | Reliability, Security |
 | Anti-Corruption Layer | Implement a façade or adapter layer between a modern application and a legacy system. | Operational Excellence |
