@@ -60,7 +60,7 @@ call can fail.
 | [Retry](../patterns/Retry/README.md) | Enable applications to handle anticipated temporary failures by retrying failed operations. | Reliability |
 | [Circuit Breaker](../patterns/CircuitBreaker/README.md) | Handle faults that might take a variable amount of time to fix when an application connects to a remote service or resource. | Reliability, Performance Efficiency |
 | [Throttling](../patterns/Throttling/README.md) | Control the consumption of resources from applications, tenants, or services. | Reliability, Security, Cost Optimization, Performance Efficiency |
-| Rate Limiting | Avoid or minimize throttling errors by controlling the consumption of resources. | Reliability |
+| [Rate Limiting](../patterns/RateLimiting/README.md) | Avoid or minimize throttling errors by controlling the consumption of resources. | Reliability |
 | Health Endpoint Monitoring | Implement functional checks in an application that external tools can access through exposed endpoints at regular intervals. | Reliability, Operational Excellence, Performance Efficiency |
 | Bulkhead | Isolate elements of an application into pools so that if one fails, the others continue to function. | Reliability, Security, Performance Efficiency |
 

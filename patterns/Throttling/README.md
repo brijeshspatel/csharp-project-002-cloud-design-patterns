@@ -40,8 +40,8 @@ of service.
 ## When not to use it
 
 * **You are the client, not the owner.** If your problem is *provoking* somebody else's limits, the
-  pattern you want is Rate Limiting — pace yourself so the throttling response never arrives.
-  Throttling is what the other end is doing to you.
+  pattern you want is [Rate Limiting](../RateLimiting/README.md) — pace yourself so the throttling
+  response never arrives. Throttling is what the other end is doing to you.
 * **The work can wait.** If requests can be queued rather than served now, Queue-Based Load
   Levelling absorbs the spike without refusing anybody.
 * **Capacity is elastic and cheap.** Autoscaling may be the better answer, though it is slower than
