@@ -80,10 +80,11 @@ inside it, which is orchestration wearing an event's clothes.
 because nobody was waiting. The demonstration shows a customer charged for an order that stops at
 inventory.
 
-**What this is not.** Saga is this same operation with a coordinator holding the sequence and a log
-making it durable — the two are implemented separately here so the comparison is available.
-Compensating Transaction is the undo. Scheduler Agent Supervisor is what notices a step that never
-answered, which is exactly what nothing here does.
+**What this is not.** [Saga](../Saga/README.md) is this same operation with a coordinator holding
+the sequence and a log making it durable — the two are implemented separately here so the
+comparison is available. [Compensating Transaction](../CompensatingTransaction/README.md) is the
+undo. [Scheduler Agent Supervisor](../SchedulerAgentSupervisor/README.md) is what notices a step
+that never answered, which is exactly what nothing here does.
 
 ## Advantages and trade-offs
 
@@ -106,7 +107,8 @@ announcement.
   events and holding the whole picture is the usual answer — which is CQRS, and is a *query* concern
   rather than a coordinator sneaking back in.
 * **Make handlers idempotent.** At-least-once delivery is the norm, and a duplicated
-  `PaymentAccepted` must not reserve stock twice — see Idempotent Consumer.
+  `PaymentAccepted` must not reserve stock twice — see
+  [Idempotent Consumer](../IdempotentConsumer/README.md).
 * **Watch for cycles**, which no type system will catch: a service reacting to an event its own
   announcement causes will loop for ever.
 * **Give the operation a timeout somewhere**, or a silent stop is permanent. This is where

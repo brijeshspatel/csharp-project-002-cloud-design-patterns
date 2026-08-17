@@ -43,7 +43,8 @@ finish from the log alone.
 * **The coordinator's failure genuinely does not matter** — a short, idempotent sequence that can
   simply be re-run from the start needs no log.
 * **Steps cannot be compensated.** The saga will get stuck exactly where the compensation does not
-  exist; see Compensating Transaction for what to do about the steps that have no counter.
+  exist; see [Compensating Transaction](../CompensatingTransaction/README.md) for what to do about
+  the steps that have no counter.
 * **Nobody will operate it.** A stuck saga needs a human eventually, and a system with no way to
   list them will not surface it.
 
@@ -109,7 +110,8 @@ about than a transaction.
 * **Decide what a stuck saga does.** Retry compensation, then escalate to a human with the log
   attached; a saga that fails silently is worse than one that never started.
 * **Do not let the log become the source of truth for the business data.** It records what the saga
-  did; the services still own their own state — see Event Sourcing for the pattern where the log
+  did; the services still own their own state — see [Event Sourcing](../EventSourcing/README.md) for
+  the pattern where the log
   *is* the data.
 
 ## Real-world cloud scenarios

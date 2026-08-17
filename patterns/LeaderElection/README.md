@@ -113,8 +113,8 @@ than merely gated. And a leader that is a bottleneck for whatever it alone does.
 * A scheduled job across replicas of a web application, where "run once" is the requirement.
 * A single ordered consumer of a partition or queue.
 * One instance responsible for cache warming, index rebuilds or housekeeping.
-* The active supervisor in a Scheduler Agent Supervisor deployment, so the watcher is not itself a
-  single point of failure.
+* The active supervisor in a [Scheduler Agent Supervisor](../SchedulerAgentSupervisor/README.md)
+  deployment, so the watcher is not itself a single point of failure.
 
 ## In Azure
 

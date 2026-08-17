@@ -103,13 +103,13 @@ done, at which point the neighbouring patterns in this tier become relevant.
 * **Decide what rejection means** and make it explicit. Dropping silently is right for malformed
   input and wrong for a transient failure; the two must not use the same path.
 * **Make filters idempotent** where the pipes are queues, because at-least-once delivery will
-  re-run them — see Idempotent Consumer.
+  re-run them — see [Idempotent Consumer](../IdempotentConsumer/README.md).
 * **Resist context objects.** A filter that needs "the pipeline's state" is a filter that is no
   longer independent, and the next arrangement will not be free.
 * **Watch the entry type grow.** When most fields are empty most of the time, the pipeline is
   probably two pipelines.
 * **Use durable pipes for distributed stages** so a crash between them does not lose the entry;
-  Queue-Based Load Leveling is the shape for that.
+  [Queue-Based Load Leveling](../QueueBasedLoadLeveling/README.md) is the shape for that.
 
 ## Real-world cloud scenarios
 

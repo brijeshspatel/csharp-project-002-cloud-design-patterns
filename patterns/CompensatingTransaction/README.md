@@ -77,9 +77,10 @@ same end state — and in a real system they do not.
 unrelated change to the world.
 
 **What this pattern is not.** It is about the undo, and it is indifferent to who ran the steps.
-Saga is what makes a sequence and its compensations survive the coordinator restarting; Scheduler
-Agent Supervisor is what notices a step that never answered at all; Choreography is what happens
-when no component is driving the sequence in the first place.
+[Saga](../Saga/README.md) is what makes a sequence and its compensations survive the coordinator
+restarting; [Scheduler Agent Supervisor](../SchedulerAgentSupervisor/README.md) is what notices a
+step that never answered at all; [Choreography](../Choreography/README.md) is what happens when no
+component is driving the sequence in the first place.
 
 ## Advantages and trade-offs
 

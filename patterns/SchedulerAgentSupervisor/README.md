@@ -82,9 +82,10 @@ Detection requires a third party with a clock and no stake in the work.
 background load nobody is looking at — worse than a failure, because a failure at least gets
 reported.
 
-**What this is not.** Compensating Transaction is the undo. Saga makes a sequence and its
-compensations durable across a coordinator restart, and assumes each step eventually returns
-*something*. This pattern is about the step that returns nothing at all.
+**What this is not.** [Compensating Transaction](../CompensatingTransaction/README.md) is the undo.
+[Saga](../Saga/README.md) makes a sequence and its compensations durable across a coordinator
+restart, and assumes each step eventually returns *something*. This pattern is about the step that
+returns nothing at all.
 
 ## Advantages and trade-offs
 
@@ -110,7 +111,7 @@ having several, of which one is elected, which is a neighbouring pattern in this
 * **Keep the supervisor's state durable**, or it forgets what it retried and retries for ever after
   its own restart.
 * **Run more than one supervisor and elect a leader**, so the watcher is not a single point of
-  failure — Leader Election is the neighbouring pattern for that.
+  failure — [Leader Election](../LeaderElection/README.md) is the neighbouring pattern for that.
 * **Sweep on a timer, not per request.** The supervisor's independence from the request path is the
   property that makes it work.
 
