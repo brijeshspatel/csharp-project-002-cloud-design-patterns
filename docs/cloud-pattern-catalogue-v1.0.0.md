@@ -127,7 +127,7 @@ examples model the topology in process rather than deploying it.
 | [Gatekeeper](../patterns/Gatekeeper/README.md) | Protect applications and services by using a dedicated host instance to validate and sanitize requests before forwarding them to private back ends. | Security, Performance Efficiency |
 | [Ambassador](../patterns/Ambassador/README.md) | Create helper services that send network requests on behalf of a consumer service or application. | Reliability, Security |
 | [Anti-Corruption Layer](../patterns/AntiCorruptionLayer/README.md) | Implement a façade or adapter layer between a modern application and a legacy system. | Operational Excellence |
-| Strangler Fig | Incrementally migrate a legacy system by gradually replacing pieces of functionality with new applications and services. | Reliability, Cost Optimization, Operational Excellence |
+| [Strangler Fig](../patterns/StranglerFig/README.md) | Incrementally migrate a legacy system by gradually replacing pieces of functionality with new applications and services. | Reliability, Cost Optimization, Operational Excellence |
 | Sidecar | Deploy components into a separate process or container to provide isolation and encapsulation. | Security, Operational Excellence |
 
 ## Tier 6 — Deployment and topology

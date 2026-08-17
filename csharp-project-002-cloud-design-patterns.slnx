@@ -148,5 +148,9 @@
     <Project Path="patterns/GatewayRouting/src/GatewayRouting.csproj" />
     <Project Path="patterns/GatewayRouting/tests/GatewayRouting.Tests.csproj" />
   </Folder>
+  <Folder Name="/5 - Edge and gateway/StranglerFig/">
+    <Project Path="patterns/StranglerFig/src/StranglerFig.csproj" />
+    <Project Path="patterns/StranglerFig/tests/StranglerFig.Tests.csproj" />
+  </Folder>
   <Folder Name="/6 - Deployment and topology/" />
 </Solution>
