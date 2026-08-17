@@ -4,6 +4,10 @@
     <Project Path="patterns/CircuitBreaker/src/CircuitBreaker.csproj" />
     <Project Path="patterns/CircuitBreaker/tests/CircuitBreaker.Tests.csproj" />
   </Folder>
+  <Folder Name="/1 - Resilience/HealthEndpointMonitoring/">
+    <Project Path="patterns/HealthEndpointMonitoring/src/HealthEndpointMonitoring.csproj" />
+    <Project Path="patterns/HealthEndpointMonitoring/tests/HealthEndpointMonitoring.Tests.csproj" />
+  </Folder>
   <Folder Name="/1 - Resilience/RateLimiting/">
     <Project Path="patterns/RateLimiting/src/RateLimiting.csproj" />
     <Project Path="patterns/RateLimiting/tests/RateLimiting.Tests.csproj" />
