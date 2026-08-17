@@ -37,6 +37,10 @@
     <Project Path="patterns/IdempotentConsumer/src/IdempotentConsumer.csproj" />
     <Project Path="patterns/IdempotentConsumer/tests/IdempotentConsumer.Tests.csproj" />
   </Folder>
+  <Folder Name="/2 - Messaging/MessagingBridge/">
+    <Project Path="patterns/MessagingBridge/src/MessagingBridge.csproj" />
+    <Project Path="patterns/MessagingBridge/tests/MessagingBridge.Tests.csproj" />
+  </Folder>
   <Folder Name="/2 - Messaging/PriorityQueue/">
     <Project Path="patterns/PriorityQueue/src/PriorityQueue.csproj" />
     <Project Path="patterns/PriorityQueue/tests/PriorityQueue.Tests.csproj" />

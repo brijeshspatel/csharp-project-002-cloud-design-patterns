@@ -80,7 +80,7 @@ buffering comes first.
 | [Idempotent Consumer](../patterns/IdempotentConsumer/README.md) | Handle duplicate message delivery so that processing a message multiple times has the same effect as processing it once. | Reliability |
 | [Sequential Convoy](../patterns/SequentialConvoy/README.md) | Process a set of related messages in a defined order without blocking other message groups. | Reliability |
 | [Claim Check](../patterns/ClaimCheck/README.md) | Split a large message into a claim check and a payload to avoid overwhelming a message bus. | Reliability, Security, Cost Optimization, Performance Efficiency |
-| Messaging Bridge | Build an intermediary to enable communication between messaging systems that are otherwise incompatible. | Cost Optimization, Operational Excellence |
+| [Messaging Bridge](../patterns/MessagingBridge/README.md) | Build an intermediary to enable communication between messaging systems that are otherwise incompatible. | Cost Optimization, Operational Excellence |
 | Asynchronous Request-Reply | Decouple back-end processing from a front-end host. This pattern is useful when back-end processing must be asynchronous, but the front end requires a clear and timely response. | Performance Efficiency |
 
 ## Tier 3 — Data management
