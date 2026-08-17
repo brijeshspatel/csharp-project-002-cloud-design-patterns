@@ -29,6 +29,10 @@
     <Project Path="patterns/CompetingConsumers/src/CompetingConsumers.csproj" />
     <Project Path="patterns/CompetingConsumers/tests/CompetingConsumers.Tests.csproj" />
   </Folder>
+  <Folder Name="/2 - Messaging/IdempotentConsumer/">
+    <Project Path="patterns/IdempotentConsumer/src/IdempotentConsumer.csproj" />
+    <Project Path="patterns/IdempotentConsumer/tests/IdempotentConsumer.Tests.csproj" />
+  </Folder>
   <Folder Name="/2 - Messaging/PriorityQueue/">
     <Project Path="patterns/PriorityQueue/src/PriorityQueue.csproj" />
     <Project Path="patterns/PriorityQueue/tests/PriorityQueue.Tests.csproj" />
