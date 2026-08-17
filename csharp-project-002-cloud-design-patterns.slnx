@@ -25,6 +25,10 @@
     <Project Path="patterns/Throttling/tests/Throttling.Tests.csproj" />
   </Folder>
   <Folder Name="/2 - Messaging/" />
+  <Folder Name="/2 - Messaging/AsynchronousRequestReply/">
+    <Project Path="patterns/AsynchronousRequestReply/src/AsynchronousRequestReply.csproj" />
+    <Project Path="patterns/AsynchronousRequestReply/tests/AsynchronousRequestReply.Tests.csproj" />
+  </Folder>
   <Folder Name="/2 - Messaging/ClaimCheck/">
     <Project Path="patterns/ClaimCheck/src/ClaimCheck.csproj" />
     <Project Path="patterns/ClaimCheck/tests/ClaimCheck.Tests.csproj" />
