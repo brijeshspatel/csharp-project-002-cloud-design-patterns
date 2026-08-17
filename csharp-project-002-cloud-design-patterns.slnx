@@ -86,6 +86,10 @@
     <Project Path="patterns/Sharding/src/Sharding.csproj" />
     <Project Path="patterns/Sharding/tests/Sharding.Tests.csproj" />
   </Folder>
+  <Folder Name="/3 - Data management/StaticContentHosting/">
+    <Project Path="patterns/StaticContentHosting/src/StaticContentHosting.csproj" />
+    <Project Path="patterns/StaticContentHosting/tests/StaticContentHosting.Tests.csproj" />
+  </Folder>
   <Folder Name="/4 - Coordination/" />
   <Folder Name="/5 - Edge and gateway/" />
   <Folder Name="/6 - Deployment and topology/" />

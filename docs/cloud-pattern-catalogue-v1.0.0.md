@@ -95,7 +95,7 @@ Storing and reading data at scale, once more than one process wants the same dat
 | [Sharding](../patterns/Sharding/README.md) | Divide a data store into a set of horizontal partitions or shards. | Reliability, Cost Optimization |
 | [CQRS](../patterns/CQRS/README.md) | Separate operations that read data from those that update data by using distinct interfaces. | Performance Efficiency |
 | [Event Sourcing](../patterns/EventSourcing/README.md) | Use an append-only store to record a full series of events that describe actions taken on data in a domain. | Reliability, Performance Efficiency |
-| Static Content Hosting | Deploy static content to a cloud-based storage service for direct client delivery. | Cost Optimization |
+| [Static Content Hosting](../patterns/StaticContentHosting/README.md) | Deploy static content to a cloud-based storage service for direct client delivery. | Cost Optimization |
 | Valet Key | Use a token or key to provide clients with restricted, direct access to a specific resource or service. | Security, Cost Optimization, Performance Efficiency |
 
 ## Tier 4 — Coordination
