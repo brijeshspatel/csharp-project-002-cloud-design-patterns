@@ -120,5 +120,9 @@
     <Project Path="patterns/SchedulerAgentSupervisor/tests/SchedulerAgentSupervisor.Tests.csproj" />
   </Folder>
   <Folder Name="/5 - Edge and gateway/" />
+  <Folder Name="/5 - Edge and gateway/GatewayRouting/">
+    <Project Path="patterns/GatewayRouting/src/GatewayRouting.csproj" />
+    <Project Path="patterns/GatewayRouting/tests/GatewayRouting.Tests.csproj" />
+  </Folder>
   <Folder Name="/6 - Deployment and topology/" />
 </Solution>
