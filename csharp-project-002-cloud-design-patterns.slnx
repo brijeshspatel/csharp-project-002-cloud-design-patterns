@@ -124,6 +124,10 @@
     <Project Path="patterns/GatewayAggregation/src/GatewayAggregation.csproj" />
     <Project Path="patterns/GatewayAggregation/tests/GatewayAggregation.Tests.csproj" />
   </Folder>
+  <Folder Name="/5 - Edge and gateway/GatewayOffloading/">
+    <Project Path="patterns/GatewayOffloading/src/GatewayOffloading.csproj" />
+    <Project Path="patterns/GatewayOffloading/tests/GatewayOffloading.Tests.csproj" />
+  </Folder>
   <Folder Name="/5 - Edge and gateway/GatewayRouting/">
     <Project Path="patterns/GatewayRouting/src/GatewayRouting.csproj" />
     <Project Path="patterns/GatewayRouting/tests/GatewayRouting.Tests.csproj" />
