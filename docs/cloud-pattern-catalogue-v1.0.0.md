@@ -121,7 +121,7 @@ examples model the topology in process rather than deploying it.
 | Pattern | What it does | Pillars |
 |---|---|---|
 | [Gateway Routing](../patterns/GatewayRouting/README.md) | Route requests to multiple services by using a single endpoint. | Reliability, Operational Excellence, Performance Efficiency |
-| Gateway Aggregation | Use a gateway to aggregate multiple individual requests into a single request. | Reliability, Security, Operational Excellence, Performance Efficiency |
+| [Gateway Aggregation](../patterns/GatewayAggregation/README.md) | Use a gateway to aggregate multiple individual requests into a single request. | Reliability, Security, Operational Excellence, Performance Efficiency |
 | Gateway Offloading | Offload shared or specialized service functionality to a gateway proxy. | Reliability, Security, Cost Optimization, Operational Excellence, Performance Efficiency |
 | Backends for Frontends | Create separate backend services for specific frontend applications or interfaces. | Reliability, Security, Performance Efficiency |
 | Gatekeeper | Protect applications and services by using a dedicated host instance to validate and sanitize requests before forwarding them to private back ends. | Security, Performance Efficiency |
