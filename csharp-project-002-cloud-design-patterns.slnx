@@ -8,6 +8,10 @@
     <Project Path="patterns/Retry/src/Retry.csproj" />
     <Project Path="patterns/Retry/tests/Retry.Tests.csproj" />
   </Folder>
+  <Folder Name="/1 - Resilience/Throttling/">
+    <Project Path="patterns/Throttling/src/Throttling.csproj" />
+    <Project Path="patterns/Throttling/tests/Throttling.Tests.csproj" />
+  </Folder>
   <Folder Name="/2 - Messaging/" />
   <Folder Name="/3 - Data management/" />
   <Folder Name="/4 - Coordination/" />
