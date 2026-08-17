@@ -109,7 +109,7 @@ Agreeing on outcomes across services, once a single operation spans more than on
 | [Scheduler Agent Supervisor](../patterns/SchedulerAgentSupervisor/README.md) | Coordinate a set of actions across distributed services and resources. | Reliability, Performance Efficiency |
 | [Leader Election](../patterns/LeaderElection/README.md) | Coordinate actions in a distributed application by electing one instance as the leader. The leader manages a collection of collaborating task instances. | Reliability |
 | [Choreography](../patterns/Choreography/README.md) | Let individual services decide when and how a business operation is processed, instead of depending on a central orchestrator. | Operational Excellence, Performance Efficiency |
-| Pipes and Filters | Break down a task that performs complex processing into a series of separate elements that can be reused. | Reliability |
+| [Pipes and Filters](../patterns/PipesAndFilters/README.md) | Break down a task that performs complex processing into a series of separate elements that can be reused. | Reliability |
 
 Saga follows Compensating Transaction because it is built on it, as the source catalogue states.
 

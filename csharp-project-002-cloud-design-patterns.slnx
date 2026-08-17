@@ -103,6 +103,10 @@
     <Project Path="patterns/CompensatingTransaction/src/CompensatingTransaction.csproj" />
     <Project Path="patterns/CompensatingTransaction/tests/CompensatingTransaction.Tests.csproj" />
   </Folder>
+  <Folder Name="/4 - Coordination/PipesAndFilters/">
+    <Project Path="patterns/PipesAndFilters/src/PipesAndFilters.csproj" />
+    <Project Path="patterns/PipesAndFilters/tests/PipesAndFilters.Tests.csproj" />
+  </Folder>
   <Folder Name="/4 - Coordination/Saga/">
     <Project Path="patterns/Saga/src/Saga.csproj" />
     <Project Path="patterns/Saga/tests/Saga.Tests.csproj" />
