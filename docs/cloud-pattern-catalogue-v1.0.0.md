@@ -105,7 +105,7 @@ Agreeing on outcomes across services, once a single operation spans more than on
 | Pattern | What it does | Pillars |
 |---|---|---|
 | [Compensating Transaction](../patterns/CompensatingTransaction/README.md) | Undo the work performed by a sequence of steps that collectively form an eventually consistent operation. | Reliability |
-| Saga | Manage data consistency across microservices in distributed transaction scenarios. | Reliability |
+| [Saga](../patterns/Saga/README.md) | Manage data consistency across microservices in distributed transaction scenarios. | Reliability |
 | Scheduler Agent Supervisor | Coordinate a set of actions across distributed services and resources. | Reliability, Performance Efficiency |
 | Leader Election | Coordinate actions in a distributed application by electing one instance as the leader. The leader manages a collection of collaborating task instances. | Reliability |
 | Choreography | Let individual services decide when and how a business operation is processed, instead of depending on a central orchestrator. | Operational Excellence, Performance Efficiency |
