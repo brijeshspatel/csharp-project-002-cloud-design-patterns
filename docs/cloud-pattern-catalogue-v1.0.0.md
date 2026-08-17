@@ -137,7 +137,7 @@ from a reader who already knows the rest.
 
 | Pattern | What it does | Pillars |
 |---|---|---|
-| Deployment Stamps | Deploy multiple independent copies of application components, including data stores. | Operational Excellence, Performance Efficiency |
+| [Deployment Stamps](../patterns/DeploymentStamps/README.md) | Deploy multiple independent copies of application components, including data stores. | Operational Excellence, Performance Efficiency |
 | Geode | Deploy back-end services across geographically distributed nodes. Each node can handle client requests from any region. | Reliability, Performance Efficiency |
 | Compute Resource Consolidation | Consolidate multiple tasks or operations into a single computational unit. | Cost Optimization, Operational Excellence, Performance Efficiency |
 | External Configuration Store | Move configuration information out of an application deployment package to a centralized location. | Operational Excellence |
