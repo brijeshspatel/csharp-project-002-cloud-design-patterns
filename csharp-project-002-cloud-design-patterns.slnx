@@ -103,6 +103,10 @@
     <Project Path="patterns/Saga/src/Saga.csproj" />
     <Project Path="patterns/Saga/tests/Saga.Tests.csproj" />
   </Folder>
+  <Folder Name="/4 - Coordination/SchedulerAgentSupervisor/">
+    <Project Path="patterns/SchedulerAgentSupervisor/src/SchedulerAgentSupervisor.csproj" />
+    <Project Path="patterns/SchedulerAgentSupervisor/tests/SchedulerAgentSupervisor.Tests.csproj" />
+  </Folder>
   <Folder Name="/5 - Edge and gateway/" />
   <Folder Name="/6 - Deployment and topology/" />
 </Solution>
