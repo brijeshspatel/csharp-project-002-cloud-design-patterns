@@ -95,6 +95,10 @@
     <Project Path="patterns/ValetKey/tests/ValetKey.Tests.csproj" />
   </Folder>
   <Folder Name="/4 - Coordination/" />
+  <Folder Name="/4 - Coordination/CompensatingTransaction/">
+    <Project Path="patterns/CompensatingTransaction/src/CompensatingTransaction.csproj" />
+    <Project Path="patterns/CompensatingTransaction/tests/CompensatingTransaction.Tests.csproj" />
+  </Folder>
   <Folder Name="/5 - Edge and gateway/" />
   <Folder Name="/6 - Deployment and topology/" />
 </Solution>
