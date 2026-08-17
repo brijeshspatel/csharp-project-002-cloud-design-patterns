@@ -124,6 +124,10 @@
     <Project Path="patterns/Ambassador/src/Ambassador.csproj" />
     <Project Path="patterns/Ambassador/tests/Ambassador.Tests.csproj" />
   </Folder>
+  <Folder Name="/5 - Edge and gateway/AntiCorruptionLayer/">
+    <Project Path="patterns/AntiCorruptionLayer/src/AntiCorruptionLayer.csproj" />
+    <Project Path="patterns/AntiCorruptionLayer/tests/AntiCorruptionLayer.Tests.csproj" />
+  </Folder>
   <Folder Name="/5 - Edge and gateway/BackendsForFrontends/">
     <Project Path="patterns/BackendsForFrontends/src/BackendsForFrontends.csproj" />
     <Project Path="patterns/BackendsForFrontends/tests/BackendsForFrontends.Tests.csproj" />
