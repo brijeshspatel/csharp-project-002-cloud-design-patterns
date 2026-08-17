@@ -62,7 +62,7 @@ call can fail.
 | [Throttling](../patterns/Throttling/README.md) | Control the consumption of resources from applications, tenants, or services. | Reliability, Security, Cost Optimization, Performance Efficiency |
 | [Rate Limiting](../patterns/RateLimiting/README.md) | Avoid or minimize throttling errors by controlling the consumption of resources. | Reliability |
 | [Health Endpoint Monitoring](../patterns/HealthEndpointMonitoring/README.md) | Implement functional checks in an application that external tools can access through exposed endpoints at regular intervals. | Reliability, Operational Excellence, Performance Efficiency |
-| Bulkhead | Isolate elements of an application into pools so that if one fails, the others continue to function. | Reliability, Security, Performance Efficiency |
+| [Bulkhead](../patterns/Bulkhead/README.md) | Isolate elements of an application into pools so that if one fails, the others continue to function. | Reliability, Security, Performance Efficiency |
 
 Retry comes before Circuit Breaker because a breaker is what you add once retrying stops helping.
 

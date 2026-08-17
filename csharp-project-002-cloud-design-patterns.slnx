@@ -1,5 +1,9 @@
 <Solution>
   <Folder Name="/1 - Resilience/" />
+  <Folder Name="/1 - Resilience/Bulkhead/">
+    <Project Path="patterns/Bulkhead/src/Bulkhead.csproj" />
+    <Project Path="patterns/Bulkhead/tests/Bulkhead.Tests.csproj" />
+  </Folder>
   <Folder Name="/1 - Resilience/CircuitBreaker/">
     <Project Path="patterns/CircuitBreaker/src/CircuitBreaker.csproj" />
     <Project Path="patterns/CircuitBreaker/tests/CircuitBreaker.Tests.csproj" />
