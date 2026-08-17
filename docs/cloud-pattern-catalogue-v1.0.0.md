@@ -92,7 +92,7 @@ Storing and reading data at scale, once more than one process wants the same dat
 | [Cache-Aside](../patterns/CacheAside/README.md) | Load data on demand into a cache from a data store. | Reliability, Performance Efficiency |
 | [Materialized View](../patterns/MaterializedView/README.md) | Generate prepopulated views over the data in one or more data stores when the data is poorly formatted for required query operations. | Performance Efficiency |
 | [Index Table](../patterns/IndexTable/README.md) | Create indexes over the fields in data stores that queries frequently reference. | Reliability, Performance Efficiency |
-| Sharding | Divide a data store into a set of horizontal partitions or shards. | Reliability, Cost Optimization |
+| [Sharding](../patterns/Sharding/README.md) | Divide a data store into a set of horizontal partitions or shards. | Reliability, Cost Optimization |
 | CQRS | Separate operations that read data from those that update data by using distinct interfaces. | Performance Efficiency |
 | Event Sourcing | Use an append-only store to record a full series of events that describe actions taken on data in a domain. | Reliability, Performance Efficiency |
 | Static Content Hosting | Deploy static content to a cloud-based storage service for direct client delivery. | Cost Optimization |
