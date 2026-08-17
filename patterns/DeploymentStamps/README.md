@@ -71,11 +71,12 @@ mean anything.
 that tenant's data, so failing over would answer with somebody else's world — worse than an honest
 refusal.
 
-**What this is not.** Geode is the opposite arrangement: every node holds the same data and **any**
-node serves **any** request, buying ubiquity at the cost of replication lag. Stamps buy isolation at
-the cost of being unable to serve a tenant from anywhere. Sharding partitions a data store *within*
-one application; a stamp is a whole application, store included. Backends for Frontends splits by
-client rather than by tenant.
+**What this is not.** [Geode](../Geode/README.md) is the opposite arrangement: every node holds the
+same data and **any** node serves **any** request, buying ubiquity at the cost of replication lag.
+Stamps buy isolation at the cost of being unable to serve a tenant from anywhere.
+[Sharding](../Sharding/README.md) partitions a data store *within* one application; a stamp is a
+whole application, store included. [Backends for Frontends](../BackendsForFrontends/README.md)
+splits by client rather than by tenant.
 
 ## Advantages and trade-offs
 

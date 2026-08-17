@@ -78,9 +78,9 @@ staged rollout and a way back.
 **Packaged defaults are kept deliberately.** An application that cannot start without reaching the
 store has made a configuration outage into a total outage.
 
-**What this is not.** Deployment Stamps and Geode are about where components run; this is about where
-their settings live, and it composes with both — one store per stamp, or one per region, are the
-usual arrangements.
+**What this is not.** [Deployment Stamps](../DeploymentStamps/README.md) and
+[Geode](../Geode/README.md) are about where components run; this is about where their settings live,
+and it composes with both — one store per stamp, or one per region, are the usual arrangements.
 
 ## Advantages and trade-offs
 

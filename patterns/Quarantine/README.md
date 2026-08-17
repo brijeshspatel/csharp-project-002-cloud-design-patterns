@@ -73,9 +73,9 @@ nothing looked.
 **Refusals name the check they failed**, because "rejected" tells a developer nothing about whether
 to find another library, request an exception, or wait for a patched version.
 
-**What this is not.** Gatekeeper, in tier 5, validates **requests** arriving from outside, and its
-subject is network reachability. This validates **assets the organisation is choosing to depend on**,
-before they enter the supply chain.
+**What this is not.** [Gatekeeper](../Gatekeeper/README.md), in tier 5, validates **requests**
+arriving from outside, and its subject is network reachability. This validates **assets the
+organisation is choosing to depend on**, before they enter the supply chain.
 
 ## Advantages and trade-offs
 

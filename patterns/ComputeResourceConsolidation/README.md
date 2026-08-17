@@ -83,9 +83,10 @@ Deployment Stamps and Geode both say *deploy more copies* — for blast radius a
 says *deploy fewer units* — for cost density. They are not in conflict: they answer different
 questions, and a system can sensibly do both at different granularities.
 
-**What this is not.** Deployment Stamps separates by tenant for isolation; Geode replicates for
-reach. Bulkhead, in tier 1, isolates *within* a process so one workload cannot exhaust another —
-which is precisely the mitigation for the noisy-neighbour cost this pattern introduces.
+**What this is not.** [Deployment Stamps](../DeploymentStamps/README.md) separates by tenant for
+isolation; [Geode](../Geode/README.md) replicates for reach. [Bulkhead](../Bulkhead/README.md), in
+tier 1, isolates *within* a process so one workload cannot exhaust another — which is precisely the
+mitigation for the noisy-neighbour cost this pattern introduces.
 
 ## Advantages and trade-offs
 
@@ -106,8 +107,8 @@ exist when each task had its own machine.
   decision you have already made badly.
 * **Check that peaks do not coincide** before consolidating. Two tasks averaging ten per cent that
   both peak at midnight are not a ten per cent pair.
-* **Bound each task's resources within the unit** — a Bulkhead — so one cannot consume everything.
-  Without it, this pattern's main risk is unmitigated.
+* **Bound each task's resources within the unit** — a [Bulkhead](../Bulkhead/README.md) — so one
+  cannot consume everything. Without it, this pattern's main risk is unmitigated.
 * **Keep the tasks independently deployable if you can.** Consolidating runtime does not require
   consolidating release cycles, and coupling them makes every change riskier.
 * **Reconsider periodically.** Consolidation decisions rot: a task that was small two years ago may

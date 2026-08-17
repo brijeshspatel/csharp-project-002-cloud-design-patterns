@@ -43,7 +43,8 @@ receiving replication.
 * **The write rate is high and conflicting.** Global replication with concurrent writes needs
   conflict resolution, which is a design problem rather than a configuration one.
 * **Data residency forbids it.** Replicating everything everywhere is exactly what jurisdictional
-  rules often prohibit — which is a reason to reach for Deployment Stamps instead.
+  rules often prohibit — which is a reason to reach for
+  [Deployment Stamps](../DeploymentStamps/README.md) instead.
 * **There is one region's worth of users.** The cost is real and the benefit is not.
 
 ## Architecture and components
@@ -77,10 +78,11 @@ teaches the benefit and none of the cost.
 **A lost node costs nothing.** Another serves the identical request — which is precisely what a
 stamped arrangement cannot do, and the clearest way to see that these are opposites.
 
-**What this is not.** Deployment Stamps is the opposite arrangement: each copy holds only its own
-tenants' data, a request has exactly one home, and a failed stamp means its tenants are **refused**
-rather than served elsewhere. Stamps buy isolation and cannot fail over; geodes buy ubiquity and
-cannot avoid lag. Sharding partitions data within one deployment, which is neither.
+**What this is not.** [Deployment Stamps](../DeploymentStamps/README.md) is the opposite
+arrangement: each copy holds only its own tenants' data, a request has exactly one home, and a
+failed stamp means its tenants are **refused** rather than served elsewhere. Stamps buy isolation
+and cannot fail over; geodes buy ubiquity and cannot avoid lag.
+[Sharding](../Sharding/README.md) partitions data within one deployment, which is neither.
 
 ## Advantages and trade-offs
 

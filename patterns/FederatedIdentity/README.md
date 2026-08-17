@@ -81,10 +81,11 @@ them. *In this model it equals the signing key, because the signature is a strin
 than real cryptography* — a real provider publishes an asymmetric public key, and that difference is
 the whole basis of the claim above.
 
-**What this is not.** Gatekeeper also splits a system so the exposed half holds nothing worth
-stealing, and its subject is network reachability; this one's is authentication. Valet Key hands out
-a scoped, expiring key to a **resource**; a token here asserts **who somebody is** and leaves
-authorisation to the application.
+**What this is not.** [Gatekeeper](../Gatekeeper/README.md) also splits a system so the exposed
+half holds nothing worth stealing, and its subject is network reachability; this one's is
+authentication. [Valet Key](../ValetKey/README.md) hands out a scoped, expiring key to a
+**resource**; a token here asserts **who somebody is** and leaves authorisation to the
+application.
 
 ## Advantages and trade-offs
 
