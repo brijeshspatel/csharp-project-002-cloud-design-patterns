@@ -74,7 +74,7 @@ buffering comes first.
 | Pattern | What it does | Pillars |
 |---|---|---|
 | [Queue-Based Load Leveling](../patterns/QueueBasedLoadLeveling/README.md) | Use a queue that creates a buffer between a task and a service to smooth intermittent heavy loads. | Reliability, Cost Optimization, Performance Efficiency |
-| Competing Consumers | Enable multiple concurrent consumers to process messages that they receive on the same messaging channel. | Reliability, Cost Optimization, Performance Efficiency |
+| [Competing Consumers](../patterns/CompetingConsumers/README.md) | Enable multiple concurrent consumers to process messages that they receive on the same messaging channel. | Reliability, Cost Optimization, Performance Efficiency |
 | Priority Queue | Prioritize requests sent to services so that requests with a higher priority are processed more quickly. | Reliability, Performance Efficiency |
 | Publisher-Subscriber | Enable an application to announce events to multiple consumers asynchronously, without coupling senders to receivers. | Reliability, Security, Cost Optimization, Operational Excellence, Performance Efficiency |
 | Idempotent Consumer | Handle duplicate message delivery so that processing a message multiple times has the same effect as processing it once. | Reliability |

@@ -25,6 +25,10 @@
     <Project Path="patterns/Throttling/tests/Throttling.Tests.csproj" />
   </Folder>
   <Folder Name="/2 - Messaging/" />
+  <Folder Name="/2 - Messaging/CompetingConsumers/">
+    <Project Path="patterns/CompetingConsumers/src/CompetingConsumers.csproj" />
+    <Project Path="patterns/CompetingConsumers/tests/CompetingConsumers.Tests.csproj" />
+  </Folder>
   <Folder Name="/2 - Messaging/QueueBasedLoadLeveling/">
     <Project Path="patterns/QueueBasedLoadLeveling/src/QueueBasedLoadLeveling.csproj" />
     <Project Path="patterns/QueueBasedLoadLeveling/tests/QueueBasedLoadLeveling.Tests.csproj" />
