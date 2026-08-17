@@ -130,7 +130,12 @@ public sealed class OrderTranslator
         return new LegacyOrderRecord(
             ToOrderNumber(order.Reference),
             $"C{order.CustomerId["CUST-".Length..].PadLeft(4, '0')}",
-            (int)(order.Amount * 100m),
+
+            // Rounded, not cast. A bare (int) truncates toward zero, which
+            // turns 12.345 pounds into 1234 pence - the quiet unit defect this
+            // boundary exists to keep out of both systems. Away-from-zero is
+            // the rounding ledgers conventionally expect of a half-penny.
+            (int)decimal.Round(order.Amount * 100m, 0, MidpointRounding.AwayFromZero),
             ToLegacyStatus(order.Status),
             order.PlacedOn.ToString("yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture));
     }

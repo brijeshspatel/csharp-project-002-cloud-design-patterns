@@ -77,7 +77,7 @@ public sealed class MigrationRouter
         this.features = [.. features];
     }
 
-    /// <summary>Features that have moved, in the order they moved.</summary>
+    /// <summary>Features that have moved, in catalogue order.</summary>
     public IReadOnlyList<string> Migrated => [.. features.Where(migrated.Contains)];
 
     /// <summary>Features still served by the legacy system.</summary>
@@ -96,9 +96,20 @@ public sealed class MigrationRouter
     public int UnknownFeatures { get; private set; }
 
     /// <summary>Moves one feature to the new implementation.</summary>
+    /// <exception cref="ArgumentException">The feature is not in the list.</exception>
     public void Migrate(string feature)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(feature);
+
+        // A name nobody wrote down is refused, loudly. Adding it to the set
+        // would inflate the count that Complete and MigratedProportion divide
+        // by - and a typo would end the migration on paper while the real
+        // feature still routed to legacy.
+        if (!features.Contains(feature))
+        {
+            throw new ArgumentException($"'{feature}' is not a feature this migration knows.", nameof(feature));
+        }
+
         migrated.Add(feature);
     }
 

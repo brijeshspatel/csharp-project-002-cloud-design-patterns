@@ -77,6 +77,14 @@ already handled. Elements are removed **whole** here — tag, content and closin
 stripping only the angle brackets leaves the script body behind as text, which is the
 half-sanitising that makes a private side believe it is safe when it is not.
 
+**Which treatment a field gets depends on what the field is.** The payload is free text, so it is
+sanitised: changing it still leaves it meaning what the sender meant. The reference is an
+identifier, so it is validated and refused instead — form, length and character set — because
+cleaning an identifier forwards a *different* identifier, which is worse than forwarding none. And
+the gatekeeper **fails closed on every shape of input**, including a default struct whose fields
+are null: the exposed component crashing on hostile input would be an outage an attacker can cause
+at will, where a refusal is just a refusal.
+
 **Distinct refusal reasons**, because "rejected" tells an operator nothing about whether this is an
 attack, a client bug or a limit set too low.
 
@@ -149,4 +157,7 @@ They cover a valid submission reaching the private processor; a malformed refere
 **three hostile or malformed submissions with the private side never running once**, which is the
 pattern's actual guarantee; the exposed component holding **no secrets while the private one holds
 one**, which is the blast-radius claim stated as an assertion; markup removed **whole** before it
-crosses the boundary; and each refusal carrying a distinct, specific reason.
+crosses the boundary; a reference carrying markup being **refused rather than cleaned or
+forwarded**, because identifiers are validated where free text is sanitised; an overlong reference
+refused; a default submission — null fields and all — **refused rather than crashing**; and each
+refusal carrying a distinct, specific reason.

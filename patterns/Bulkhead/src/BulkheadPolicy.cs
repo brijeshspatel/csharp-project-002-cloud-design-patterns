@@ -108,7 +108,13 @@ public sealed class BulkheadPolicy : IDisposable
         return await operation().ConfigureAwait(false);
     }
 
-    /// <summary>Releases every pool.</summary>
+    /// <summary>
+    /// Releases every pool. Dispose the policy **after** every held slot has
+    /// been released: a <see cref="Slot"/> disposed later releases into a
+    /// disposed semaphore, which throws <see cref="ObjectDisposedException"/>.
+    /// The <c>using</c> declarations in the demonstration get this right by
+    /// declaring the policy first, so it is disposed last.
+    /// </summary>
     public void Dispose()
     {
         if (disposed)

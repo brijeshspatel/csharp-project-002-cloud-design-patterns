@@ -78,6 +78,7 @@ public sealed class PrivateProcessor
 public sealed class PublicEndpoint
 {
     private const int MaximumPayload = 100;
+    private const int MaximumReference = 24;
 
     private readonly PrivateProcessor processor;
 
@@ -108,9 +109,31 @@ public sealed class PublicEndpoint
     /// </summary>
     public ValidationOutcome Accept(Submission submission)
     {
-        if (!submission.Reference.StartsWith("SUB-", StringComparison.Ordinal))
+        // Fail closed on any shape of input, including a default struct whose
+        // fields are null. A crash here would be an outage an attacker can
+        // cause at will; a refusal is just a refusal.
+        if (submission.Reference is not string reference
+            || !reference.StartsWith("SUB-", StringComparison.Ordinal))
         {
             return Refuse("the reference is not in the expected form");
+        }
+
+        if (reference.Length > MaximumReference)
+        {
+            return Refuse($"the reference is too long: {reference.Length} characters");
+        }
+
+        // The reference is an identifier, so it is validated rather than
+        // sanitised: an identifier carrying markup is not cleaned into a
+        // different identifier, it is refused. Sanitising is for free text —
+        // the payload — where changing the value still leaves it meaning what
+        // the sender meant.
+        foreach (char c in reference.AsSpan("SUB-".Length))
+        {
+            if (!char.IsAsciiLetterOrDigit(c) && c != '-')
+            {
+                return Refuse("the reference contains characters an identifier cannot");
+            }
         }
 
         if (string.IsNullOrWhiteSpace(submission.Payload))

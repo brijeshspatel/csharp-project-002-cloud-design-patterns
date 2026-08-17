@@ -85,17 +85,26 @@ public class ConfigurationStoreTests
     }
 
     [Fact]
-    public void Reports_the_version_each_instance_is_running()
+    public void Reports_an_instance_that_has_stopped_reading_as_behind()
     {
         Fleet fleet = FourInstances();
         fleet.Store.Set("feature.new-checkout", "on");
 
-        // All on the same version, because all are reading the same store. An
-        // instance reporting an older version is one that has stopped
-        // refreshing — which is invisible without this.
-        Assert.All(
-            fleet.Instances,
-            instance => Assert.Equal(fleet.Store.Version, instance.ConfigurationVersion));
+        ApplicationInstance current = fleet.Instances[0];
+        ApplicationInstance stalled = fleet.Instances[1];
+        current.Read("feature.new-checkout");
+        stalled.Read("feature.new-checkout");
+
+        // The store moves on; only one instance keeps reading.
+        fleet.Store.Set("feature.new-checkout", "off");
+        current.Read("feature.new-checkout");
+
+        // The stalled instance reports an older version - the drift the
+        // version exists to reveal, visible instead of assumed. Without the
+        // stamp-at-read this could never fail, because the report would just
+        // proxy the store.
+        Assert.Equal(fleet.Store.Version, current.ConfigurationVersion);
+        Assert.Equal(fleet.Store.Version - 1, stalled.ConfigurationVersion);
     }
 
     [Fact]

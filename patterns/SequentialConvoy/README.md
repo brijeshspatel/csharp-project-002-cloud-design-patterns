@@ -138,5 +138,7 @@ The tests are about what the dispatcher guarantees rather than how it is current
 They cover in-order delivery for a group; a message arriving early being **held rather than
 released**, because releasing it is the wrong answer and not merely an untidy one; a gap closing
 releasing everything contiguous at once; **one group blocked leaving another entirely unaffected**,
-which is the guarantee that distinguishes this from a single ordered queue; and each group's own
-order being identical whatever the interleaving of arrivals.
+which is the guarantee that distinguishes this from a single ordered queue; each group's own
+order being identical whatever the interleaving of arrivals; and a **redelivered message the group
+has already released being dropped** rather than held — holding it would leave the held count
+reporting a healthy group as stuck for ever, since nothing could ever release it.

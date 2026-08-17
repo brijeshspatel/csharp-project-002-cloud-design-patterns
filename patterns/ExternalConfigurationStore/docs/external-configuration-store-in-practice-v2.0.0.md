@@ -2,7 +2,7 @@
 doc_id: external-configuration-store-in-practice
 title: External Configuration Store in practice
 type: explanation
-version: 1.0.0
+version: 2.0.0
 status: active
 created: 2026-08-18
 updated: 2026-08-18
@@ -97,8 +97,10 @@ The same applies across environments: knowing that staging is on v104 and produc
 
 The store is an object in the same process, so there is **no network**: no latency per read, no store
 outage, and therefore no exercise of the packaged-default path under failure — which is that
-fallback's entire purpose. There is no caching and no refresh interval, so an instance is always
-instantly current and the drift the version exists to reveal cannot actually occur. There are no
+fallback's entire purpose. There is no caching and no refresh interval: an instance is current
+the moment it reads, and it reports the version its last read observed, so the only drift the
+model exhibits is an instance that stops reading and visibly falls behind. The production shape of
+it - a node refreshing on an interval that quietly fails - is described rather than shown. There are no
 labels or environments, no staged rollout, and no validation on write. There is no access control,
 which is a substantial part of the pattern's real operational weight. And there are no secrets, so
 the two-store arrangement above is described rather than shown.

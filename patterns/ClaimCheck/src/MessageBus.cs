@@ -76,6 +76,9 @@ public sealed class MessageBus
         messages.Enqueue(message);
     }
 
+    /// <summary>Looks at the next message without consuming it.</summary>
+    public bool TryPeek(out BusMessage message) => messages.TryPeek(out message);
+
     /// <summary>Takes the next message, if there is one.</summary>
     public bool TryReceive(out BusMessage message)
     {

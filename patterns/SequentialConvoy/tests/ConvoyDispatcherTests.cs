@@ -106,4 +106,21 @@ public class ConvoyDispatcherTests
             grouped.Released.Where(m => m.Group == "B").Select(m => m.Payload),
             interleaved.Released.Where(m => m.Group == "B").Select(m => m.Payload));
     }
+
+    [Fact]
+    public void Drops_a_redelivered_message_the_group_has_already_released()
+    {
+        ConvoyDispatcher dispatcher = new();
+
+        dispatcher.Accept(Message("A", 1));
+        dispatcher.Accept(Message("A", 2));
+
+        // A retry redelivers sequence 1 after the group has moved past it.
+        // Holding it would poison the held set - nothing could ever release
+        // it, so HeldCount would report this healthy group as stuck for ever.
+        dispatcher.Accept(Message("A", 1));
+
+        Assert.Equal(0, dispatcher.HeldFor("A"));
+        Assert.Equal(2, dispatcher.Released.Count);
+    }
 }

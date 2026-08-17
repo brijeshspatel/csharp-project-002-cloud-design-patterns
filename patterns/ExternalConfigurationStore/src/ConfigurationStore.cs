@@ -76,6 +76,7 @@ public sealed class ApplicationInstance
 {
     private readonly ConfigurationStore store;
     private readonly IReadOnlyDictionary<string, string> packagedDefaults;
+    private int lastObservedVersion;
 
     /// <summary>Creates an instance reading from <paramref name="store"/>.</summary>
     public ApplicationInstance(
@@ -98,8 +99,13 @@ public sealed class ApplicationInstance
     /// <summary>How many times it has been restarted.</summary>
     public int Restarts { get; private set; }
 
-    /// <summary>The configuration version it is serving — the store's, because it reads live.</summary>
-    public int ConfigurationVersion => store.Version;
+    /// <summary>
+    /// The configuration version this instance last observed — stamped by each
+    /// read rather than proxied live from the store. The distinction is the
+    /// point: an instance that has stopped reading genuinely reports an older
+    /// number, and that gap is the drift the version exists to reveal.
+    /// </summary>
+    public int ConfigurationVersion => lastObservedVersion;
 
     /// <summary>
     /// Reads a setting: the store first, then the packaged default, then
@@ -107,6 +113,8 @@ public sealed class ApplicationInstance
     /// </summary>
     public string? Read(string key)
     {
+        lastObservedVersion = store.Version;
+
         if (store.Get(key) is { } value)
         {
             return value;

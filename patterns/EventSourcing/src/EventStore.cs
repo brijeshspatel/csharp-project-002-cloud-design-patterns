@@ -47,6 +47,10 @@ public sealed class EventStore
     /// <paramref name="expectedVersion"/>.
     /// </summary>
     /// <exception cref="InvalidOperationException">The stream has moved on.</exception>
+    /// <exception cref="ArgumentException">
+    /// The event's own <see cref="AccountEvent.Version"/> disagrees with the
+    /// position it would occupy.
+    /// </exception>
     public void Append(string accountId, AccountEvent change, int expectedVersion)
     {
         ArgumentNullException.ThrowIfNull(accountId);
@@ -57,6 +61,18 @@ public sealed class EventStore
             throw new InvalidOperationException(
                 $"Stream '{accountId}' is at version {actual}, not {expectedVersion}. " +
                 "The decision behind this event was made against state that has changed.");
+        }
+
+        // The event's Version field claims a position; the append decides one.
+        // Accepting a disagreement would leave the stream's count and its last
+        // event's field telling two different stories about the same version,
+        // and every reader would have to pick one.
+        if (change.Version != expectedVersion + 1)
+        {
+            throw new ArgumentException(
+                $"The event numbers itself {change.Version}, but it would be " +
+                $"event {expectedVersion + 1} of stream '{accountId}'.",
+                nameof(change));
         }
 
         if (!streams.TryGetValue(accountId, out List<AccountEvent>? stream))

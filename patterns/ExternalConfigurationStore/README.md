@@ -142,6 +142,7 @@ is asserted as plainly as the benefit.
 
 They cover a setting served from the store rather than the package; a single change reaching **all
 four instances**; **four restarts avoided**, with every instance's restart count still zero; a bad
-value reaching all four **exactly as fast**, which is the trade stated as a test; every instance
-reporting the same configuration version, which is how drift would become visible; and a packaged
-default used when the store holds no value, with nothing returned when neither does.
+value reaching all four **exactly as fast**, which is the trade stated as a test; an instance that
+has stopped reading **reporting an older version than one that kept reading**, which is drift made
+visible rather than assumed; and a packaged default used when the store holds no value, with
+nothing returned when neither does.

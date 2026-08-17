@@ -49,6 +49,25 @@ public class OrderSagaTests
     }
 
     [Fact]
+    public void Records_a_compensation_that_reports_failure_as_failed()
+    {
+        SagaLog log = new();
+        OrderSaga saga = new(
+            log,
+            Records([], failAt: "shipping"),
+            Records([], failAt: "payment"));
+
+        saga.Run();
+
+        // The log tells the truth: inventory was countered, payment's counter
+        // failed and the step still stands. Recording Compensated here would
+        // lie to the operator and to any replacement coordinator.
+        Assert.Contains(new SagaEntry("inventory", SagaStatus.Compensated), log.Entries);
+        Assert.Contains(new SagaEntry("payment", SagaStatus.CompensationFailed), log.Entries);
+        Assert.True(log.IsComplete("payment"));
+    }
+
+    [Fact]
     public void Recovers_from_the_log_alone_after_a_restart()
     {
         SagaLog log = new();

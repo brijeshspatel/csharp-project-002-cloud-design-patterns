@@ -80,7 +80,7 @@ public sealed class RouteTable
 
         foreach (KeyValuePair<string, BackendService> route in routes)
         {
-            if (path.StartsWith(route.Key, StringComparison.Ordinal) && route.Key.Length > longest)
+            if (Matches(path, route.Key) && route.Key.Length > longest)
             {
                 longest = route.Key.Length;
                 best = route.Value;
@@ -89,6 +89,17 @@ public sealed class RouteTable
 
         return best;
     }
+
+    // A prefix matches whole segments only: /catalogue owns /catalogue and
+    // /catalogue/items, and does not own /cataloguesale. A bare StartsWith
+    // would route the latter - a path belonging to no real resource - instead
+    // of refusing it, which is the path-confusion mistake real gateways match
+    // on segment boundaries to avoid.
+    private static bool Matches(string path, string prefix) =>
+        path.StartsWith(prefix, StringComparison.Ordinal)
+        && (path.Length == prefix.Length
+            || prefix[^1] == '/'
+            || path[prefix.Length] == '/');
 }
 
 /// <summary>

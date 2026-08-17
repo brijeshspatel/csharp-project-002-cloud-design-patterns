@@ -138,9 +138,13 @@ sign-in risk policies are the provider's, applied without any application changi
 **What this model does not show.** The signature is a string comparison with a **symmetric** key, so
 the central claim — that a verification key checks tokens and cannot mint them — is approximated
 rather than demonstrated. There is no network and no protocol: no redirects, no authorisation code
-exchange, no discovery document and no key rotation. There is no refresh token, so the lifetime
-trade is described and never exercised. There is no revocation. And there is no multi-factor,
-conditional access or session management, which is most of what a real provider is bought for.
+exchange, no discovery document and no key rotation. **The provider stores its enrolled passwords
+in plain text** and compares them directly — the very practice the problem statement says
+applications get wrong, kept only because this model's subject is the trust protocol rather than
+credential storage; a real provider holds salted, stretched hashes and nothing recoverable. There
+is no refresh token, so the lifetime trade is described and never exercised. There is no
+revocation. And there is no multi-factor, conditional access or session management, which is most
+of what a real provider is bought for.
 
 ## What the tests assert
 

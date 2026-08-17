@@ -130,7 +130,12 @@ in a multi-instance deployment the counter must be shared, and a distributed cou
 consistency and failure questions the single-process version does not have. The clock is advanced by
 hand, so the window boundary is exact rather than racing. Nothing shows `429` responses,
 `Retry-After` headers, per-operation costs, sliding windows, or the boundary-spike flaw the
-Advantages section describes. Treat the distributed behaviour as unmeasured here.
+Advantages section describes. **The type itself is not thread-safe** — its per-tenant dictionary is
+read and written without synchronisation, so even a single-instance multi-threaded host, which is
+where a throttle usually lives, needs a concurrent store or a lock before this shape is safe to
+copy. And **tenant entries are never evicted**: a window that has expired leaves its entry behind,
+so a process fed attacker-chosen tenant keys grows without bound. Treat the distributed behaviour
+as unmeasured here.
 
 ## What the tests assert
 

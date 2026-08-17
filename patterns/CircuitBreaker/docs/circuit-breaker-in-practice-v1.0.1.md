@@ -2,10 +2,10 @@
 doc_id: circuit-breaker-in-practice
 title: Circuit Breaker in practice
 type: explanation
-version: 1.0.0
+version: 1.0.1
 status: active
 created: 2026-08-17
-updated: 2026-08-17
+updated: 2026-08-18
 ---
 
 # Circuit Breaker in practice
@@ -15,8 +15,8 @@ pattern is and when to use it; this says what tends to go wrong once it is real.
 
 ## Concurrency is where this pattern is actually hard
 
-The state machine is easy. Four fields and three transitions, and the version in this folder is
-about eighty lines.
+The state machine is easy. Three configuration fields, three of mutable state and four
+transitions, and the version in this folder is about eighty lines.
 
 What makes production breakers difficult is that they are shared by definition — the whole value is
 that one caller's discovery informs the others — and shared mutable state under concurrency is the

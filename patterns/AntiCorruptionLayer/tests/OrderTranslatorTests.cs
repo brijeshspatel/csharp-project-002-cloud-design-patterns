@@ -45,6 +45,20 @@ public class OrderTranslatorTests
     }
 
     [Fact]
+    public void Rounds_rather_than_truncates_when_converting_to_pence()
+    {
+        OrderTranslator translator = Translator();
+        ModernOrder order = new("ORD-1042", "CUST-7", 12.345m, "shipped", new DateOnly(2026, 8, 18));
+
+        LegacyOrderRecord record = translator.ToLegacy(order);
+
+        // A bare (int) cast would truncate this to 1234. Units are the
+        // quietest defect a boundary can leak, and rounding is part of the
+        // translation's contract, not an implementation detail.
+        Assert.Equal(1235, record.AmountInPence);
+    }
+
+    [Fact]
     public void Converts_the_units_the_legacy_system_uses()
     {
         ModernOrder order = Translator().ToModern(Record());

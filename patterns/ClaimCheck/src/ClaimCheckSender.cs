@@ -76,16 +76,21 @@ public sealed class ClaimCheckReceiver
     /// </exception>
     public bool TryReceive(out string payload)
     {
-        if (!bus.TryReceive(out BusMessage message))
+        if (!bus.TryPeek(out BusMessage message))
         {
             payload = string.Empty;
             return false;
         }
 
+        // Redeem before consuming. Taking the message first would destroy it,
+        // so a redemption that failed would take the evidence with it - nothing
+        // left to retry, inspect or dead-letter. The message leaves the bus
+        // only once its payload is actually in hand.
         payload = ClaimCheckToken.TryRead(message.Body, out string reference)
             ? store.Retrieve(reference)
             : message.Body;
 
+        bus.TryReceive(out _);
         return true;
     }
 }

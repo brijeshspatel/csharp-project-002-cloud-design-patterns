@@ -2,10 +2,10 @@
 doc_id: saga-in-practice
 title: Saga in practice
 type: explanation
-version: 1.0.0
+version: 2.0.0
 status: active
 created: 2026-08-17
-updated: 2026-08-17
+updated: 2026-08-18
 ---
 
 # Saga in practice
@@ -102,6 +102,7 @@ deciding whether to compensate.
 The log is in memory, so it survives nothing; the demonstration simulates a lost coordinator by
 discarding the object, which is the shape of the problem rather than the problem. There is no crash
 between an action and its log entry, so the ambiguity idempotency exists to cover never arises.
-Compensations never fail, so no saga gets stuck and there is no escalation path to exercise. There
-are no timeouts. And nothing is concurrent — two coordinators cannot pick up the same saga, which
+A compensation that reports failure is recorded as `CompensationFailed` rather than assumed to
+have worked - but nothing retries or escalates it, so the log tells the truth and acting on it is
+left outside the model. There are no timeouts. And nothing is concurrent — two coordinators cannot pick up the same saga, which
 in a real system is what a lease or Leader Election prevents.

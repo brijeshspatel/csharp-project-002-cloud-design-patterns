@@ -92,4 +92,22 @@ public class ClaimCheckTests
 
         Assert.Throws<PayloadUnavailableException>(() => receiver.TryReceive(out _));
     }
+
+    [Fact]
+    public void Leaves_the_message_on_the_bus_when_redemption_fails()
+    {
+        (MessageBus bus, InMemoryPayloadStore store) = Build();
+        ClaimCheckSender sender = new(bus, store, inlineLimit: BusLimit / 2);
+        ClaimCheckReceiver receiver = new(bus, store);
+
+        sender.Send("scan", Payload(200));
+        store.CollectAll();
+
+        Assert.Throws<PayloadUnavailableException>(() => receiver.TryReceive(out _));
+
+        // The receiver redeems before it consumes. Dequeuing first would
+        // destroy the message on failure - and the evidence with it, leaving
+        // nothing to retry, inspect or dead-letter.
+        Assert.Equal(1, bus.Depth);
+    }
 }

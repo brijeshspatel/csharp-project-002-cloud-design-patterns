@@ -12,6 +12,14 @@ public enum SagaStatus
     /// <summary>Countered after a later step failed.</summary>
     Compensated,
 
+    /// <summary>
+    /// Countering was attempted and reported failure — the step's effect may
+    /// still stand. Recorded rather than swallowed: a log that shows
+    /// <see cref="Compensated"/> for a compensation that failed lies to the
+    /// operator who reads it, and to the replacement coordinator that trusts it.
+    /// </summary>
+    CompensationFailed,
+
     /// <summary>The saga gave up; everything completed has been countered.</summary>
     Failed,
 }
@@ -156,8 +164,12 @@ public sealed class OrderSaga
                 continue;
             }
 
-            compensate(step);
-            log.Append(new SagaEntry(step, SagaStatus.Compensated));
+            // The result is recorded, not assumed. A step whose compensation
+            // failed still stands, and IsComplete keeps saying so — which is
+            // what lets a later coordinator attempt the compensation again.
+            log.Append(new SagaEntry(
+                step,
+                compensate(step) ? SagaStatus.Compensated : SagaStatus.CompensationFailed));
         }
     }
 }

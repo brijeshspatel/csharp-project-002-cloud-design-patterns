@@ -75,7 +75,10 @@ void Report()
 {
     foreach (ApplicationInstance instance in fleet)
     {
+        // Read first: the version an instance reports is the one its last
+        // read observed, which is what makes a stalled instance visible.
+        string? value = instance.Read("feature.new-checkout");
         Console.WriteLine($"  {instance.Name}  v{instance.ConfigurationVersion}  " +
-                          $"feature.new-checkout = {instance.Read("feature.new-checkout")}");
+                          $"feature.new-checkout = {value}");
     }
 }

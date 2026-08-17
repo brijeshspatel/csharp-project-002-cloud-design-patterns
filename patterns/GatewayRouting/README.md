@@ -134,6 +134,8 @@ The tests are about what the gateway guarantees rather than how it is currently 
 
 They cover a request reaching the service that owns its path; a versioned path reaching a
 **different** service while the first sees nothing; an unmatched path refused **with no service
-handling it**, which is what a fall-through silently breaks; the gateway reporting the routes it
-holds; and a service added mid-run being reachable by the same client call that failed a moment
+handling it**, which is what a fall-through silently breaks; a lookalike path such as
+`/cataloguesale` being **refused rather than routed by raw prefix**, while `/catalogue/items/42`
+still resolves — prefixes own whole segments, not character runs; the gateway reporting the routes
+it holds; and a service added mid-run being reachable by the same client call that failed a moment
 earlier — the decoupling, stated as a test.

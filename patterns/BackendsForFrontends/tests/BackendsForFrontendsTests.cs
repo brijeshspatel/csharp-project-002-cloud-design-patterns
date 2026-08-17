@@ -85,7 +85,10 @@ public class BackendsForFrontendsTests
         MobileBackend changed = new(domain, nameLimit: 10);
 
         Assert.Equal("Profession...", changed.Get(Sku)?.Name);
-        Assert.Equal(before?.Name, desktop.Get(Sku)?.Name);
+
+        // The whole desktop view, compared field for field. Its backend did
+        // not change, so nothing about its response may have.
+        Assert.Equal(before, desktop.Get(Sku));
     }
 
     [Fact]

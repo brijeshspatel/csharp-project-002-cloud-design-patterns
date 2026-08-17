@@ -118,4 +118,18 @@ public class MigrationRouterTests
         Assert.StartsWith("legacy", answer, StringComparison.Ordinal);
         Assert.Equal(1, cast.Router.UnknownFeatures);
     }
+
+    [Fact]
+    public void Refuses_to_migrate_a_feature_nobody_wrote_down()
+    {
+        Cast cast = Assemble();
+
+        // A typo silently added to the migrated set would inflate the count
+        // that Complete divides by: the migration would end on paper while the
+        // real feature still routed to legacy.
+        Assert.Throws<ArgumentException>(() => cast.Router.Migrate("invocie"));
+
+        Assert.False(cast.Router.Complete);
+        Assert.Empty(cast.Router.Migrated);
+    }
 }

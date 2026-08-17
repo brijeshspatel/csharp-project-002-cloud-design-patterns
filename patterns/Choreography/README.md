@@ -151,5 +151,5 @@ They cover the operation completing with **nothing driving it**; each service re
 one event it cares about, which is what a mis-subscription silently breaks; the events being
 recorded in publication order; the operation **stopping silently** when a service declines, with the
 customer already charged and no error raised anywhere; and **no component knowing the overall
-state** — payment cannot say whether it shipped, shipping cannot say whether it was paid, and no
-service saw more than its own step.
+state** — payment cannot say whether it shipped, shipping cannot say the order was even placed, and
+no service saw more than its own step.

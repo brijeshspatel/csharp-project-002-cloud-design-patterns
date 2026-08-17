@@ -66,6 +66,22 @@ public class RequestGatewayTests
     }
 
     [Fact]
+    public void Matches_whole_path_segments_rather_than_raw_prefixes()
+    {
+        (RequestGateway gateway, _, BackendService catalogue) = Assemble();
+
+        // /cataloguesale begins with the characters of /catalogue and belongs
+        // to no real resource. Raw prefix matching would route it; segment
+        // matching refuses it, and still owns the genuine sub-paths.
+        ServiceResponse lookalike = gateway.Send(new ClientRequest("/cataloguesale", string.Empty));
+        ServiceResponse genuine = gateway.Send(new ClientRequest("/catalogue/items/42", string.Empty));
+
+        Assert.False(lookalike.Found);
+        Assert.True(genuine.Found);
+        Assert.Equal(1, catalogue.Handled);
+    }
+
+    [Fact]
     public void Reports_the_routes_it_holds()
     {
         (RequestGateway gateway, _, _) = Assemble();

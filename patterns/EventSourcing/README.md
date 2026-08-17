@@ -141,5 +141,6 @@ They cover an event being appended and the stream's version moving with it; curr
 by replay rather than stored; **every event surviving a later state change**, which is what a
 store that overwrote would destroy while still answering the balance correctly; an earlier state
 reconstructed from a prefix of the same stream; a stale expected version being refused, which is
-the concurrency guarantee; and an empty stream replaying to initial state, so an unknown account
-needs no special case.
+the concurrency guarantee; an event whose own version field **misnumbers its position being
+refused**, so the stream's count and its events can never tell two different stories; and an empty
+stream replaying to initial state, so an unknown account needs no special case.

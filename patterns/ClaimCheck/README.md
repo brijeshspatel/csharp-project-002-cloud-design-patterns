@@ -138,5 +138,7 @@ The tests are about what the pattern guarantees rather than how it is currently 
 They cover the constraint itself — a bus that genuinely **refuses** an oversized message, without
 which the rest is meaningless; a large payload travelling as a small token while the payload goes to
 the store; the receiver getting back **exactly** what was sent; a small payload travelling inline
-with the store untouched; and a redeemed check whose payload has been collected failing clearly
-rather than yielding an empty result.
+with the store untouched; a redeemed check whose payload has been collected failing clearly
+rather than yielding an empty result; and that failed redemption **leaving the message on the
+bus**, because the receiver redeems before it consumes — dequeuing first would destroy the
+message on failure, and the evidence with it.

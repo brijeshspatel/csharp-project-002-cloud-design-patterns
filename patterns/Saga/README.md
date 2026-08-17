@@ -78,8 +78,8 @@ undone.
 **The steps are fixed, deliberately.** A saga is a *named business transaction* — it knows that
 stock is reserved after payment is taken and what each of those means — rather than a general engine
 for arbitrary work. That generality is Compensating Transaction's job, and this pattern does not
-import it: R-3 admits no cross-references, and sharing the mechanism would make the two
-indistinguishable.
+import it: the pattern folders deliberately share no code, and sharing the mechanism would make the
+two indistinguishable.
 
 **What this is not.** Compensating Transaction is the undo mechanism, indifferent to who drives.
 Scheduler Agent Supervisor is what notices a step that **never answered at all** — a saga assumes
@@ -134,7 +134,9 @@ is a different pattern in this same tier.
 **What this model does not show.** The log is in memory, so it does not actually survive anything —
 the demonstration simulates a lost coordinator by discarding the object, which is the shape of the
 problem rather than the problem. There is no crash between an action and its log entry, which is
-the ambiguity idempotency exists to cover. Compensations never fail here, so no saga gets stuck.
+the ambiguity idempotency exists to cover. A compensation that reports failure is **recorded as
+failed rather than assumed to have worked** — but nothing here retries or escalates it, so acting
+on that record is left to an operator or a later coordinator.
 There is no timeout, no retry and no escalation. And nothing is concurrent: two coordinators cannot
 pick up the same saga, which in a real system is what leases and Leader Election are for.
 
@@ -146,5 +148,6 @@ recovery tests assert against a **fresh coordinator holding nothing but the log*
 They cover each step being recorded as it completes; completed steps being countered, last first,
 when a later step fails; a replacement finishing the operation from the log alone; a completed step
 **not being repeated**, which for a payment is the whole point; the saga reporting failure once
-compensation has finished, with both compensations recorded; and an empty log reporting that there
-is nothing to recover.
+compensation has finished, with both compensations recorded; a compensation that reports failure
+being **recorded as failed rather than as compensated**, with the step still standing in the log;
+and an empty log reporting that there is nothing to recover.

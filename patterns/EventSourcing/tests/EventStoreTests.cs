@@ -82,6 +82,19 @@ public class EventStoreTests
     }
 
     [Fact]
+    public void Rejects_an_event_that_misnumbers_its_own_position()
+    {
+        EventStore store = StoreWithHistory();
+        int atVersion = store.VersionOf(Account);
+
+        // The event claims to be number 99; the stream is about to hand it the
+        // next position. Accepting the disagreement would leave the stream's
+        // count and its last event's Version field telling different stories.
+        Assert.Throws<ArgumentException>(() =>
+            store.Append(Account, new AccountEvent("withdrawn", -50m, 99), expectedVersion: atVersion));
+    }
+
+    [Fact]
     public void Reports_an_empty_stream_as_initial_state()
     {
         EventStore store = new();

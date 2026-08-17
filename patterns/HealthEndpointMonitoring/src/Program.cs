@@ -10,19 +10,19 @@ Console.WriteLine();
 
 TimeSpan slowThreshold = TimeSpan.FromMilliseconds(500);
 
-Probe("Everything is fine", clock =>
+await Probe("Everything is fine", clock =>
 [
     new DatabaseCheck(clock, TimeSpan.FromMilliseconds(20)),
     new CacheCheck(HealthStatus.Healthy),
 ]);
 
-Probe("The database is answering, but slowly", clock =>
+await Probe("The database is answering, but slowly", clock =>
 [
     new DatabaseCheck(clock, TimeSpan.FromMilliseconds(900)),
     new CacheCheck(HealthStatus.Healthy),
 ]);
 
-Probe("A check is itself broken", clock =>
+await Probe("A check is itself broken", clock =>
 [
     new DatabaseCheck(clock, TimeSpan.FromMilliseconds(20)),
     new CacheCheck(HealthStatus.Degraded),
@@ -32,14 +32,14 @@ Probe("A check is itself broken", clock =>
 Console.WriteLine("The third probe is the one worth reading: the broker check threw,");
 Console.WriteLine("and the endpoint reported it instead of failing with it.");
 
-void Probe(string title, Func<ManualClock, IHealthCheck[]> build)
+async Task Probe(string title, Func<ManualClock, IHealthCheck[]> build)
 {
     Console.WriteLine(title);
     Console.WriteLine(new string('-', 66));
 
     ManualClock clock = new(new DateTimeOffset(2026, 8, 17, 9, 0, 0, TimeSpan.Zero));
     HealthEndpoint endpoint = new(build(clock), slowThreshold, clock);
-    HealthReport report = endpoint.ProbeAsync().GetAwaiter().GetResult();
+    HealthReport report = await endpoint.ProbeAsync().ConfigureAwait(false);
 
     Console.WriteLine($"  overall: {report.Status}");
     foreach (HealthEntry entry in report.Entries)

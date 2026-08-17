@@ -131,9 +131,11 @@ several Azure SDKs, which pace against the service's own published budgets.
 **What this model does not show.** Nothing ever waits: the clock is advanced by hand, so the caller
 is told to wait and the demonstration simply asserts the wait happened. There is no asynchronous
 `WaitAsync`, no queueing of pending permits, and no cancellation — all of which the BCL type has and
-all of which are where the real design questions live. State is in one process, so nothing exercises
-sharing a budget across instances. And no real `429` is ever received, so the interaction between a
-client's model of the limit and the server's actual answer is entirely unexercised.
+all of which are where the real design questions live. **Nor is this type thread-safe**, and the
+BCL counterpart is — a client-side limiter is naturally shared across worker tasks, so that is the
+first property to add before copying this shape into one. State is in one process, so nothing
+exercises sharing a budget across instances. And no real `429` is ever received, so the interaction
+between a client's model of the limit and the server's actual answer is entirely unexercised.
 
 ## What the tests assert
 

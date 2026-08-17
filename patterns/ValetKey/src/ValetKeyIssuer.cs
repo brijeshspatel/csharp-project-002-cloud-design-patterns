@@ -60,7 +60,7 @@ public readonly record struct ValetToken(
 public sealed class ValetKeyIssuer
 {
     private readonly IClock clock;
-    private readonly HashSet<string> issued = [];
+    private readonly Dictionary<string, ValetToken> issued = [];
     private int counter;
 
     /// <summary>Creates an issuer reading <paramref name="clock"/>.</summary>
@@ -83,9 +83,13 @@ public sealed class ValetKeyIssuer
 
         counter++;
         string value = $"key-{counter:0000}";
-        issued.Add(value);
+        ValetToken token = new(value, resource, permission, clock.UtcNow + lifetime);
 
-        return new ValetToken(value, resource, permission, clock.UtcNow + lifetime);
+        // The registry records the scope, not just the value. Validation reads
+        // this record, so the limits cannot be widened by editing a copy.
+        issued[value] = token;
+
+        return token;
     }
 
     /// <summary>
@@ -98,12 +102,19 @@ public sealed class ValetKeyIssuer
     /// <summary>
     /// Checks a presented key against what is being attempted. Called by the
     /// store, not by the application: this is the storage service's check.
+    ///
+    /// The comparison is against the scope **recorded at issue time**, never
+    /// against the presented token's own fields — those are a claim, and a
+    /// client that edits its copy (a wider resource, a stronger right, a later
+    /// expiry) gains nothing, because the record decides. A real shared access
+    /// signature gets the same property from cryptography instead: the
+    /// signature binds the limits, so an altered key fails verification.
     /// </summary>
     public bool IsValid(ValetToken token, string resource, AccessRight wanted) =>
-        issued.Contains(token.Value)
-        && string.Equals(token.Resource, resource, StringComparison.Ordinal)
-        && token.AccessRight == wanted
-        && clock.UtcNow < token.ExpiresAt;
+        issued.TryGetValue(token.Value, out ValetToken recorded)
+        && string.Equals(recorded.Resource, resource, StringComparison.Ordinal)
+        && recorded.AccessRight == wanted
+        && clock.UtcNow < recorded.ExpiresAt;
 }
 
 /// <summary>

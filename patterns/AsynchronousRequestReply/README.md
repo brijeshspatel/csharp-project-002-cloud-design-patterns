@@ -55,6 +55,7 @@ about it. The connection is released in milliseconds; the answer is reachable wh
 sequenceDiagram
     participant Caller
     participant Gateway as JobGateway
+    participant Status as StatusEndpoint
     participant Store as IJobStore
     participant Worker as ReportWorker
 
@@ -63,9 +64,13 @@ sequenceDiagram
     Gateway-->>Caller: Acceptance(jobId, statusLocation)
     Note over Caller: connection released
     Worker->>Store: Start -> Running
-    Caller->>Store: Poll -> Running
+    Caller->>Status: Poll(jobId)
+    Status->>Store: Read
+    Status-->>Caller: Running
     Worker->>Store: Complete -> Succeeded, result
-    Caller->>Store: Poll -> Succeeded + result
+    Caller->>Status: Poll(jobId)
+    Status->>Store: Read
+    Status-->>Caller: Succeeded + result
 ```
 
 | Participant | Role |
@@ -151,5 +156,7 @@ They cover acceptance returning a usable handle, with the identifier present in 
 `Pending` before work starts and `Running` once it has, which are different facts a progress
 indicator needs to tell apart; the result being reachable on success; **the failure being reachable
 through the same channel**, because a caller that can only discover success waits for ever
-otherwise; and an unknown job reporting **`NotFound` rather than `Pending`**, which is what stops a
-caller polling for ever for work that does not exist.
+otherwise; an unknown job reporting **`NotFound` rather than `Pending`**, which is what stops a
+caller polling for ever for work that does not exist; and the worker **refusing an identifier
+nothing ever submitted**, which is what stops a typo minting a job and turning `NotFound` into
+`Running`.

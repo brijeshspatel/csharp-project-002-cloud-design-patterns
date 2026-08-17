@@ -82,6 +82,48 @@ public class PublicEndpointTests
     }
 
     [Fact]
+    public void Refuses_a_reference_carrying_markup()
+    {
+        (PublicEndpoint endpoint, PrivateProcessor processor) = Assemble();
+
+        // The reference is an identifier, so it is validated rather than
+        // sanitised: cleaning it would forward a different identifier, and
+        // forwarding it as-is would carry markup across the boundary. It is
+        // refused, and the private side never sees it.
+        ValidationOutcome outcome = endpoint.Accept(
+            new Submission("SUB-<script>alert(1)</script>", "a claim form"));
+
+        Assert.False(outcome.Accepted);
+        Assert.Equal(0, processor.Received);
+    }
+
+    [Fact]
+    public void Refuses_an_overlong_reference()
+    {
+        (PublicEndpoint endpoint, PrivateProcessor processor) = Assemble();
+
+        ValidationOutcome outcome = endpoint.Accept(
+            new Submission($"SUB-{new string('9', 200)}", "a claim form"));
+
+        Assert.False(outcome.Accepted);
+        Assert.Equal(0, processor.Received);
+    }
+
+    [Fact]
+    public void Refuses_a_default_submission_rather_than_crashing()
+    {
+        (PublicEndpoint endpoint, PrivateProcessor processor) = Assemble();
+
+        // Fail closed on any shape of input, including a struct whose fields
+        // are null. The exposed component crashing on hostile input would be an
+        // outage an attacker can cause at will; a refusal is just a refusal.
+        ValidationOutcome outcome = endpoint.Accept(default);
+
+        Assert.False(outcome.Accepted);
+        Assert.Equal(0, processor.Received);
+    }
+
+    [Fact]
     public void Reports_why_a_submission_was_refused()
     {
         (PublicEndpoint endpoint, _) = Assemble();

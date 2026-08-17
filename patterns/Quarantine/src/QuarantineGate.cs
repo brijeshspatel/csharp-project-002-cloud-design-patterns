@@ -42,7 +42,12 @@ public sealed class AssetRegistry
     /// <summary>Whether a named asset is available to the workload.</summary>
     public bool Contains(string name) => admitted.ContainsKey(name);
 
-    /// <summary>Makes an asset available. Only the gate calls this.</summary>
+    /// <summary>
+    /// Makes an asset available. The gate is the only caller in this model,
+    /// but nothing in the type system enforces that — a real registry closes
+    /// this door with access control, so that admission genuinely cannot
+    /// happen except through the checks.
+    /// </summary>
     public void Admit(ExternalAsset asset) => admitted[asset.Name] = asset;
 }
 

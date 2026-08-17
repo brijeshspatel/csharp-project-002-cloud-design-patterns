@@ -25,10 +25,10 @@ Console.WriteLine();
 Publish(new OrderPlaced("ORD-001", 42.50m));
 Publish(new OrderPlaced("ORD-002", 19.99m));
 
-Console.WriteLine("Analytics unsubscribes, then a third order is placed");
+Console.WriteLine("An audit subscriber joins for one order, then its subscription is disposed");
 Console.WriteLine(new string('-', 60));
 
-// Re-subscribing to get a handle we can dispose; the first registration stays.
+// Subscribe returns a disposable handle; disposing it removes only this registration.
 using (IDisposable temporary = orders.Subscribe("audit", order =>
     Console.WriteLine($"    audit:      logged {order.Reference}")))
 {

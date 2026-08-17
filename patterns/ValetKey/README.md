@@ -64,10 +64,14 @@ sequenceDiagram
     App->>App: authorise once
     App-->>Client: key: one resource, write, 15 minutes
     Client->>Store: write invoice-1042 + key
-    Store->>Store: resource? permission? expired? issued?
+    Store->>App: does the key permit write of invoice-1042?
+    App-->>Store: yes - the recorded scope matches
     Store-->>Client: written
     Client->>Store: write someone-elses.pdf + same key
+    Store->>App: does the key permit write of someone-elses.pdf?
+    App-->>Store: no
     Store-->>Client: refused
+    note over App,Store: here the store consults the issuer's registry —<br/>a real store verifies a signature by itself
 ```
 
 | Participant | Role |
@@ -81,6 +85,12 @@ sequenceDiagram
 never expires is a permanent credential in a client that cannot keep it; one that expires but is
 unscoped is a key to the whole container; one that is scoped and expiring but permits everything
 is a write key handed out for a download. The tests refuse each independently for that reason.
+
+**The limits live in the issuer's record, not in the client's copy.** Validation compares the
+attempt against the scope recorded at issue time, never against the presented token's own fields —
+those are a claim, and editing a copy to name a wider resource, a stronger right or a later expiry
+gains nothing. A real shared access signature gets the same property from cryptography: the
+signature binds the limits, so an altered key fails verification.
 
 **The store knows nothing about identity, deliberately.** It cannot consult a user directory, and
 it does not need to: the application already decided, and the key carries the decision.
@@ -133,8 +143,12 @@ from its registry, by making the signature reference a policy that can be withdr
 Front Door** and **CDN** offer signed URLs for the same idea over delivered content.
 
 **What this model does not show.** The key is a registry lookup rather than a cryptographic
-signature, which is what real implementations use — and that difference is the whole revocation
-story, since a signed key cannot be withdrawn without the stored-access-policy indirection. There
+signature, which is what real implementations use — and that difference carries two properties,
+not one. Revocation: a registry entry can be removed, while a signed key cannot be withdrawn
+without the stored-access-policy indirection. Tamper-proofing: here the registry record is what
+makes the limits authoritative, where a real signature makes them authoritative by failing
+verification the moment any field is altered. It also means the store here holds a reference back
+to the issuer, a coupling a self-contained signature removes — the diagram shows it. There
 is no network, so nothing shows the client actually bypassing the application. There is no
 issuance audit trail. Keys are not renewed or refreshed for long-running transfers. And nothing
 validates the content that was uploaded once the application had stepped away.
@@ -147,5 +161,8 @@ the three limits gets its own refusal.
 They cover a key carrying exactly one resource, one right and one expiry; that key granting the
 access it names; the same key **refused for a different resource**, which is what stops it being a
 key to the container; a write refused with a read-only key; the key refused once it has expired,
-which is the only limit that enforces itself; and a token the issuer never issued being refused
-outright.
+which is the only limit that enforces itself; a token the issuer never issued being refused
+outright; a **tampered copy of a real key** — the genuine value carrying edited claims — refused,
+because validation reads the recorded scope rather than the presented fields; an expired key
+refused even when its copy claims a later expiry; and a revoked key refused before its expiry,
+which is the capability the registry has and a self-contained signature does not.

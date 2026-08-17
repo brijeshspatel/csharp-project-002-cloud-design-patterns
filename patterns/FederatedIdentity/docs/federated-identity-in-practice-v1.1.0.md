@@ -2,7 +2,7 @@
 doc_id: federated-identity-in-practice
 title: Federated Identity in practice
 type: explanation
-version: 1.0.0
+version: 1.1.0
 status: active
 created: 2026-08-18
 updated: 2026-08-18
@@ -103,7 +103,9 @@ one is also a defensible choice, provided it is a choice.
 The signature is a string comparison with a **symmetric** key, so the pattern's central claim — a
 verification key checks tokens and cannot mint them — is approximated rather than demonstrated. There
 is no network and no protocol: no redirects, no authorisation code exchange, no discovery document,
-no key rotation. There is no refresh token, so the lifetime trade in the first section is described
+no key rotation. There is no credential hygiene either: enrolled passwords are stored in plain
+text and compared directly, where a real provider holds salted, stretched hashes and nothing
+recoverable. There is no refresh token, so the lifetime trade in the first section is described
 and never exercised. There is no revocation, no audience claim, and no clock skew. And there is no
 multi-factor, conditional access or session management — which is most of what a real provider is
 bought for.

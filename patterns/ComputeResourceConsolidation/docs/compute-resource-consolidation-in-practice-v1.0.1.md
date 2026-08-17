@@ -2,7 +2,7 @@
 doc_id: compute-resource-consolidation-in-practice
 title: Compute Resource Consolidation in practice
 type: explanation
-version: 1.0.0
+version: 1.0.1
 status: active
 created: 2026-08-18
 updated: 2026-08-18
@@ -14,7 +14,7 @@ Supporting material for [the Compute Resource Consolidation pattern](../README.m
 
 ## The tier's internal argument
 
-Five of tier 6's six patterns push toward more copies: stamps for isolation, geodes for reach. This
+Two of tier 6's six patterns push toward more copies: stamps for isolation, geodes for reach. This
 one pushes toward fewer units. Read quickly, that looks like a contradiction.
 
 It is not, because they answer different questions:

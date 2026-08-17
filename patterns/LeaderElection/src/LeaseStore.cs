@@ -38,6 +38,13 @@ public readonly record struct Lease(string Owner, DateTimeOffset ExpiresAt);
 ///
 /// A store that granted a held lease would elect two leaders, which is the one
 /// outcome the whole pattern exists to prevent.
+///
+/// **This in-memory store is not synchronised**, so it satisfies the pattern's
+/// "holds a lease atomically" precondition only when callers take turns, as the
+/// stepped demonstration and tests here do. Shared across threads, its
+/// check-then-act in <see cref="TryAcquire"/> could grant the same free lease
+/// twice — the two-leader outcome itself. A real store (a blob lease, a
+/// database row) provides the atomicity; this model assumes it.
 /// </summary>
 public sealed class LeaseStore
 {

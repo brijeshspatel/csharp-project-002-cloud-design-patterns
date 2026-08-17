@@ -56,6 +56,17 @@ public sealed class ConvoyDispatcher
             nextExpected[message.Group] = 1;
         }
 
+        // A sequence the group has already released is a redelivery. Holding it
+        // would poison the held set - nothing could ever release it, so
+        // HeldCount, the number an operator watches for stuck convoys, would
+        // climb for ever on a healthy group. Dropping it is safe precisely
+        // because it was released once already; suppressing what a duplicate
+        // *does* remains Idempotent Consumer's job.
+        if (message.Sequence < nextExpected[message.Group])
+        {
+            return;
+        }
+
         waiting[message.Sequence] = message;
 
         // Release as far as the sequence is unbroken. A gap stops **this**

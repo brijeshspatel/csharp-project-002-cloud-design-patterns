@@ -1,6 +1,6 @@
 using Quarantine;
 
-// Four third-party packages submitted for use. Two are refused before the
+// Four third-party packages submitted for use. Three are refused before the
 // build can see them, and the registry holds only what passed.
 
 Console.WriteLine("Quarantine - checked before the workload can consume it");

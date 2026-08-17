@@ -81,14 +81,34 @@ public sealed class ReportWorker
     }
 
     /// <summary>Marks a job as being worked on.</summary>
-    public void Start(string jobId) =>
+    public void Start(string jobId)
+    {
+        MustKnow(jobId);
         store.Write(jobId, new JobState(JobStatus.Running, null, null));
+    }
 
     /// <summary>Finishes a job with a result.</summary>
-    public void Complete(string jobId, string result) =>
+    public void Complete(string jobId, string result)
+    {
+        MustKnow(jobId);
         store.Write(jobId, new JobState(JobStatus.Succeeded, result, null));
+    }
 
     /// <summary>Finishes a job with an error.</summary>
-    public void Fail(string jobId, string error) =>
+    public void Fail(string jobId, string error)
+    {
+        MustKnow(jobId);
         store.Write(jobId, new JobState(JobStatus.Failed, null, error));
+    }
+
+    // A worker given an identifier nothing submitted must refuse it. Writing it
+    // would mint a job that was never accepted - and turn NotFound, the status
+    // this pattern makes load-bearing, into Running on the strength of a typo.
+    private void MustKnow(string jobId)
+    {
+        if (!store.Knows(jobId))
+        {
+            throw new InvalidOperationException($"No job '{jobId}' was ever accepted.");
+        }
+    }
 }

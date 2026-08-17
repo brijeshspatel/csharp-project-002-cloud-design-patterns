@@ -93,4 +93,16 @@ public class JobGatewayTests
         // would poll for ever for work that does not exist and never will.
         Assert.Equal(JobStatus.NotFound, status.Poll("no-such-job").Status);
     }
+
+    [Fact]
+    public void Refuses_work_on_a_job_nothing_ever_submitted()
+    {
+        (_, StatusEndpoint status, ReportWorker worker) = Build();
+
+        // A worker with a mistyped identifier must not mint a job that was
+        // never accepted - that would turn NotFound into Running on the
+        // strength of a typo.
+        Assert.Throws<InvalidOperationException>(() => worker.Start("job-9999"));
+        Assert.Equal(JobStatus.NotFound, status.Poll("job-9999").Status);
+    }
 }

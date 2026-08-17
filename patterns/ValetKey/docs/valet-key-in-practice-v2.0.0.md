@@ -2,10 +2,10 @@
 doc_id: valet-key-in-practice
 title: Valet Key in practice
 type: explanation
-version: 1.0.0
+version: 2.0.0
 status: active
 created: 2026-08-17
-updated: 2026-08-17
+updated: 2026-08-18
 ---
 
 # Valet Key in practice
@@ -90,7 +90,9 @@ the discipline the pattern makes necessary.
 
 ## What this repository's model leaves out
 
-The key is a registry entry rather than a signature, which inverts the revocation story: `Revoke`
+The key is a registry entry rather than a signature, and the registry record - never the client's
+copy - is what validation trusts, so the limits are tamper-proof by lookup where a real key makes
+them tamper-proof by cryptography. The registry also inverts the revocation story: `Revoke`
 works here and would not in most real implementations. There is no network and no separate
 storage service, so nothing demonstrates the client actually bypassing the application — the whole
 benefit is described rather than shown. There is no issuance log, no renewal for long transfers,
