@@ -66,6 +66,10 @@
     <Project Path="patterns/CacheAside/src/CacheAside.csproj" />
     <Project Path="patterns/CacheAside/tests/CacheAside.Tests.csproj" />
   </Folder>
+  <Folder Name="/3 - Data management/MaterializedView/">
+    <Project Path="patterns/MaterializedView/src/MaterializedView.csproj" />
+    <Project Path="patterns/MaterializedView/tests/MaterializedView.Tests.csproj" />
+  </Folder>
   <Folder Name="/4 - Coordination/" />
   <Folder Name="/5 - Edge and gateway/" />
   <Folder Name="/6 - Deployment and topology/" />

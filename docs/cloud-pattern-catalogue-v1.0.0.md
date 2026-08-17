@@ -90,7 +90,7 @@ Storing and reading data at scale, once more than one process wants the same dat
 | Pattern | What it does | Pillars |
 |---|---|---|
 | [Cache-Aside](../patterns/CacheAside/README.md) | Load data on demand into a cache from a data store. | Reliability, Performance Efficiency |
-| Materialized View | Generate prepopulated views over the data in one or more data stores when the data is poorly formatted for required query operations. | Performance Efficiency |
+| [Materialized View](../patterns/MaterializedView/README.md) | Generate prepopulated views over the data in one or more data stores when the data is poorly formatted for required query operations. | Performance Efficiency |
 | Index Table | Create indexes over the fields in data stores that queries frequently reference. | Reliability, Performance Efficiency |
 | Sharding | Divide a data store into a set of horizontal partitions or shards. | Reliability, Cost Optimization |
 | CQRS | Separate operations that read data from those that update data by using distinct interfaces. | Performance Efficiency |
