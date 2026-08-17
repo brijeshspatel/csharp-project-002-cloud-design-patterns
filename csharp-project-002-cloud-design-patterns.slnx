@@ -165,6 +165,10 @@
     <Project Path="patterns/FederatedIdentity/src/FederatedIdentity.csproj" />
     <Project Path="patterns/FederatedIdentity/tests/FederatedIdentity.Tests.csproj" />
   </Folder>
+  <Folder Name="/6 - Deployment and topology/Quarantine/">
+    <Project Path="patterns/Quarantine/src/Quarantine.csproj" />
+    <Project Path="patterns/Quarantine/tests/Quarantine.Tests.csproj" />
+  </Folder>
   <Folder Name="/6 - Deployment and topology/Geode/">
     <Project Path="patterns/Geode/src/Geode.csproj" />
     <Project Path="patterns/Geode/tests/Geode.Tests.csproj" />

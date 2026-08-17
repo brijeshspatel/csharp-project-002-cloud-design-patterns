@@ -142,7 +142,7 @@ from a reader who already knows the rest.
 | [Compute Resource Consolidation](../patterns/ComputeResourceConsolidation/README.md) | Consolidate multiple tasks or operations into a single computational unit. | Cost Optimization, Operational Excellence, Performance Efficiency |
 | [External Configuration Store](../patterns/ExternalConfigurationStore/README.md) | Move configuration information out of an application deployment package to a centralized location. | Operational Excellence |
 | [Federated Identity](../patterns/FederatedIdentity/README.md) | Delegate authentication to an external identity provider. | Reliability, Security, Performance Efficiency |
-| Quarantine | Ensure that external assets meet a team-agreed quality level before the workload consumes them. | Security, Operational Excellence |
+| [Quarantine](../patterns/Quarantine/README.md) | Ensure that external assets meet a team-agreed quality level before the workload consumes them. | Security, Operational Excellence |
 
 ## What every pattern README contains
 
