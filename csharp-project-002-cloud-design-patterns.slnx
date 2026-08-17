@@ -33,6 +33,10 @@
     <Project Path="patterns/PriorityQueue/src/PriorityQueue.csproj" />
     <Project Path="patterns/PriorityQueue/tests/PriorityQueue.Tests.csproj" />
   </Folder>
+  <Folder Name="/2 - Messaging/PublisherSubscriber/">
+    <Project Path="patterns/PublisherSubscriber/src/PublisherSubscriber.csproj" />
+    <Project Path="patterns/PublisherSubscriber/tests/PublisherSubscriber.Tests.csproj" />
+  </Folder>
   <Folder Name="/2 - Messaging/QueueBasedLoadLeveling/">
     <Project Path="patterns/QueueBasedLoadLeveling/src/QueueBasedLoadLeveling.csproj" />
     <Project Path="patterns/QueueBasedLoadLeveling/tests/QueueBasedLoadLeveling.Tests.csproj" />
