@@ -102,7 +102,7 @@ schema becomes a contract with consumers you cannot enumerate, which makes chang
   coordinate a breaking change with them.
 * **Make handlers idempotent.** At-least-once delivery applies here too.
 * **Include enough in the event** that a consumer need not call back for context — but not so much
-  that the event becomes a data feed. See **Claim Check** when payloads grow.
+  that the event becomes a data feed. See [Claim Check](../ClaimCheck/README.md) when payloads grow.
 
 ## Real-world cloud scenarios
 

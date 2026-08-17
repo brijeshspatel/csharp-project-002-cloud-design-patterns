@@ -40,14 +40,14 @@ lost, and the service is never asked a question it must refuse.
 
 * **The caller needs the answer now.** A queue turns a synchronous call into an asynchronous one, and
   the caller must be able to live with that. Where a response is required immediately, see
-  **Asynchronous Request-Reply** for the shape that keeps the
+  [Asynchronous Request-Reply](../AsynchronousRequestReply/README.md) for the shape that keeps the
   front end responsive.
 * **The work expires.** Buffered work that is worthless by the time it is processed should be shed,
   not queued.
 * **The backlog can never drain.** A queue absorbs a *spike*. If arrivals exceed capacity on
   average, the queue grows for ever and the only honest fix is more capacity.
 * **Ordering across producers matters** and the queue does not guarantee it — see
-  **Sequential Convoy**.
+  [Sequential Convoy](../SequentialConvoy/README.md).
 
 ## Architecture and components
 
@@ -93,12 +93,12 @@ fine until the moment it is hours deep.
   lowest priority — but choose, rather than discovering the default.
 * **Monitor depth and age, not just throughput.** Depth says how far behind; the age of the oldest
   message says how long a customer has waited.
-* **Scale consumers to the backlog**, which is where **Competing Consumers**
+* **Scale consumers to the backlog**, which is where [Competing Consumers](../CompetingConsumers/README.md)
   comes in — this pattern buffers the spike, that one drains it faster.
 * **Handle poison messages.** One message that always fails can stall a queue for ever; a dead-letter
   path is not optional.
 * **Make consumers idempotent.** At-least-once delivery means redelivery, which is
-  **Idempotent Consumer**'s problem.
+  [Idempotent Consumer](../IdempotentConsumer/README.md)'s problem.
 
 ## Real-world cloud scenarios
 

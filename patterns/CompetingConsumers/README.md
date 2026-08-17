@@ -29,7 +29,7 @@ simply asks again sooner. Adding a worker needs no coordination at all. And a wo
 holding a message releases it back, so somebody else finishes the job.
 
 **The guarantee is that each message is handled by exactly one consumer.** That is what separates
-this from **Publisher-Subscriber**, where every subscriber gets
+this from [Publisher-Subscriber](../PublisherSubscriber/README.md), where every subscriber gets
 every message.
 
 ## When to use it
@@ -45,9 +45,9 @@ every message.
   instead means only one listener learns something they all needed to know.
 * **Order matters across the whole channel.** Competing consumers destroy global ordering by
   design — that is what parallelism means. Where order matters within a subset, see
-  **Sequential Convoy**.
+  [Sequential Convoy](../SequentialConvoy/README.md).
 * **The work is not idempotent** and nothing de-duplicates. At-least-once delivery means a released
-  message is delivered again; see **Idempotent Consumer**.
+  message is delivered again; see [Idempotent Consumer](../IdempotentConsumer/README.md).
 * **The bottleneck is downstream.** Ten workers hammering one database that was already saturated
   makes it worse, not faster.
 * **Messages are rare.** Idle consumers polling an empty channel cost money and achieve nothing.

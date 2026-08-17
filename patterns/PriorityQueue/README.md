@@ -44,7 +44,7 @@ decides between equals**, so two customers on the same tier are treated identica
   demonstration in this folder shows a low-priority ticket that is never served at all. Use ageing,
   or a weighted scheme.
 * **Order is the contract.** If related messages must be processed in sequence, priority reordering
-  breaks it. See **Sequential Convoy**.
+  breaks it. See [Sequential Convoy](../SequentialConvoy/README.md).
 * **The bottleneck is elsewhere.** Reordering a queue in front of a saturated database changes who
   waits, not how long.
 
