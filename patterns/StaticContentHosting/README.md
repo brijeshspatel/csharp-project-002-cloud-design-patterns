@@ -40,7 +40,7 @@ doing only the work that actually needs it.
 * **The content is per-user or per-request.** A personalised page is not static content, and
   caching it as though it were is how one user sees another's data.
 * **Access must be authorised per request.** Storage can be secured, but per-request authorisation
-  belongs to something that understands the user — see Valet Key for the middle ground, where the
+  belongs to something that understands the user — see [Valet Key](../ValetKey/README.md) for the middle ground, where the
   application authorises once and issues a scoped, expiring key.
 * **The asset changes constantly.** Cache invalidation then costs more than it saves; versioned
   paths assume change is occasional.

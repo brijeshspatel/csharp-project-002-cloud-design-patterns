@@ -91,7 +91,7 @@ data. The moment it holds anything the store does not, it stops being either.
 * **Rebuild rather than repair.** The index is one scan away from correct; when its integrity is
   in doubt, rebuilding is cheaper than reasoning about it.
 * **Keep it keys-only.** Copying fields into the index answers queries a shade faster and turns a
-  missed update from a dangling pointer into wrong data — see Materialized View for the pattern
+  missed update from a dangling pointer into wrong data — see [Materialized View](../MaterializedView/README.md) for the pattern
   that owns denormalised copies deliberately.
 * **One table per question shape**, and retire the ones whose question is no longer asked.
 

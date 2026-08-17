@@ -70,8 +70,8 @@ flowchart LR
 | `OrderSummary` | A shape the write model does not hold at all |
 
 **The write model is a mutable store, not an event log.** CQRS separates reading from writing and
-says nothing about keeping history — that is Event Sourcing, a neighbouring pattern that CQRS is
-often paired with and does not require. Conflating them is the most common misreading of both, so
+says nothing about keeping history — that is [Event Sourcing](../EventSourcing/README.md), a
+neighbouring pattern that CQRS is often paired with and does not require. Conflating them is the most common misreading of both, so
 this folder implements each independently.
 
 **The write model refuses dashboard questions by throwing.** The erosion of CQRS is always the
@@ -100,7 +100,8 @@ user interface that must cope with a write it just made not yet being visible.
 * **Design the interface for the staleness.** Show the user their own write optimistically, or say
   when the figure was last built — do not pretend the window is not there.
 * **Decide what a replayed or duplicated projection run must do.** Making the projection
-  idempotent, as a full rebuild is, removes an entire class of problem — see Idempotent Consumer.
+  idempotent, as a full rebuild is, removes an entire class of problem — see
+  [Idempotent Consumer](../IdempotentConsumer/README.md).
 * **Let the read model be genuinely disposable.** It is derived data; it should be rebuildable
   from the write model at any time, which is also the repair procedure.
 * **Do not add read paths to the write model.** That single convenience is how the pattern dies.

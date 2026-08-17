@@ -86,7 +86,7 @@ infrastructure: every reader and writer must share it, forever.
   cheap; every other read fans out. This is the single most consequential decision in the
   pattern, and it is nearly impossible to change once data has landed.
 * **Watch for hot shards.** Hashing spreads keys, not load: one tenant with half the traffic
-  makes its shard the ceiling again — see Throttling for what protects a shard that is hot
+  makes its shard the ceiling again — see [Throttling](../Throttling/README.md) for what protects a shard that is hot
   anyway.
 * **Keep the routing stable.** A hash that changes with process, version or library strands
   data. Consistent hashing or a lookup map reduces how much moves when the shard count changes.
@@ -95,7 +95,7 @@ infrastructure: every reader and writer must share it, forever.
 * **Plan rebalancing before it is needed** — it moves live data, and doing it without downtime
   is a project, not a task.
 * **Pair a needed cross-shard lookup with an index** — a small table mapping the queried field
-  to the shard key — rather than accepting the fan-out; see Index Table.
+  to the shard key — rather than accepting the fan-out; see [Index Table](../IndexTable/README.md).
 
 ## Real-world cloud scenarios
 

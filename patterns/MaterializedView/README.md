@@ -90,7 +90,7 @@ why it can be rebuilt freely, and why it must never become the only copy of anyt
 ## Implementation considerations
 
 * **Rebuild on a schedule matched to tolerance for staleness**, not to convenience.
-* **Consider event-driven rebuilds** where the source publishes changes — see Publisher-Subscriber.
+* **Consider event-driven rebuilds** where the source publishes changes — see [Publisher-Subscriber](../PublisherSubscriber/README.md).
   It narrows the window sharply and couples the view to the source's events.
 * **Weigh incremental refresh carefully.** It is much cheaper at scale and much easier to get subtly
   wrong; a full rebuild that takes minutes is often better than a delta that is occasionally wrong.

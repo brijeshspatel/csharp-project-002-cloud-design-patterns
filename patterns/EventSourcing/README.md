@@ -74,8 +74,8 @@ who both read version two would both append version three, and the decision one 
 against state that no longer held would be lost with no trace — the single loss an event store
 exists to prevent.
 
-**There is no read model here, deliberately.** Separating reads from writes is CQRS, a
-neighbouring pattern that event sourcing is often paired with and does not require. The two are
+**There is no read model here, deliberately.** Separating reads from writes is
+[CQRS](../CQRS/README.md), a neighbouring pattern that event sourcing is often paired with and does not require. The two are
 implemented independently in this repository so a reader can tell which one did what.
 
 ## Advantages and trade-offs
