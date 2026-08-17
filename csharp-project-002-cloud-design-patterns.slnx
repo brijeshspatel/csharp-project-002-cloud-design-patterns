@@ -161,6 +161,10 @@
     <Project Path="patterns/Geode/src/Geode.csproj" />
     <Project Path="patterns/Geode/tests/Geode.Tests.csproj" />
   </Folder>
+  <Folder Name="/6 - Deployment and topology/ComputeResourceConsolidation/">
+    <Project Path="patterns/ComputeResourceConsolidation/src/ComputeResourceConsolidation.csproj" />
+    <Project Path="patterns/ComputeResourceConsolidation/tests/ComputeResourceConsolidation.Tests.csproj" />
+  </Folder>
   <Folder Name="/6 - Deployment and topology/DeploymentStamps/">
     <Project Path="patterns/DeploymentStamps/src/DeploymentStamps.csproj" />
     <Project Path="patterns/DeploymentStamps/tests/DeploymentStamps.Tests.csproj" />

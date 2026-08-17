@@ -139,7 +139,7 @@ from a reader who already knows the rest.
 |---|---|---|
 | [Deployment Stamps](../patterns/DeploymentStamps/README.md) | Deploy multiple independent copies of application components, including data stores. | Operational Excellence, Performance Efficiency |
 | [Geode](../patterns/Geode/README.md) | Deploy back-end services across geographically distributed nodes. Each node can handle client requests from any region. | Reliability, Performance Efficiency |
-| Compute Resource Consolidation | Consolidate multiple tasks or operations into a single computational unit. | Cost Optimization, Operational Excellence, Performance Efficiency |
+| [Compute Resource Consolidation](../patterns/ComputeResourceConsolidation/README.md) | Consolidate multiple tasks or operations into a single computational unit. | Cost Optimization, Operational Excellence, Performance Efficiency |
 | External Configuration Store | Move configuration information out of an application deployment package to a centralized location. | Operational Excellence |
 | Federated Identity | Delegate authentication to an external identity provider. | Reliability, Security, Performance Efficiency |
 | Quarantine | Ensure that external assets meet a team-agreed quality level before the workload consumes them. | Security, Operational Excellence |
