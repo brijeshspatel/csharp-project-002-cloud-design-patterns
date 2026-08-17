@@ -62,6 +62,10 @@
     <Project Path="patterns/SequentialConvoy/tests/SequentialConvoy.Tests.csproj" />
   </Folder>
   <Folder Name="/3 - Data management/" />
+  <Folder Name="/3 - Data management/CacheAside/">
+    <Project Path="patterns/CacheAside/src/CacheAside.csproj" />
+    <Project Path="patterns/CacheAside/tests/CacheAside.Tests.csproj" />
+  </Folder>
   <Folder Name="/4 - Coordination/" />
   <Folder Name="/5 - Edge and gateway/" />
   <Folder Name="/6 - Deployment and topology/" />
