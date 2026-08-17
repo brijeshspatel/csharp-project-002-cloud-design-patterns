@@ -161,6 +161,10 @@
     <Project Path="patterns/ExternalConfigurationStore/src/ExternalConfigurationStore.csproj" />
     <Project Path="patterns/ExternalConfigurationStore/tests/ExternalConfigurationStore.Tests.csproj" />
   </Folder>
+  <Folder Name="/6 - Deployment and topology/FederatedIdentity/">
+    <Project Path="patterns/FederatedIdentity/src/FederatedIdentity.csproj" />
+    <Project Path="patterns/FederatedIdentity/tests/FederatedIdentity.Tests.csproj" />
+  </Folder>
   <Folder Name="/6 - Deployment and topology/Geode/">
     <Project Path="patterns/Geode/src/Geode.csproj" />
     <Project Path="patterns/Geode/tests/Geode.Tests.csproj" />
