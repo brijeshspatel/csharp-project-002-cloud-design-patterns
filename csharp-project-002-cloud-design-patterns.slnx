@@ -120,6 +120,10 @@
     <Project Path="patterns/SchedulerAgentSupervisor/tests/SchedulerAgentSupervisor.Tests.csproj" />
   </Folder>
   <Folder Name="/5 - Edge and gateway/" />
+  <Folder Name="/5 - Edge and gateway/Ambassador/">
+    <Project Path="patterns/Ambassador/src/Ambassador.csproj" />
+    <Project Path="patterns/Ambassador/tests/Ambassador.Tests.csproj" />
+  </Folder>
   <Folder Name="/5 - Edge and gateway/BackendsForFrontends/">
     <Project Path="patterns/BackendsForFrontends/src/BackendsForFrontends.csproj" />
     <Project Path="patterns/BackendsForFrontends/tests/BackendsForFrontends.Tests.csproj" />
