@@ -1,15 +1,3 @@
----
-doc_id: cloud-pattern-catalogue
-title: Cloud pattern catalogue
-type: index
-version: 1.0.0
-status: active
-created: 2026-08-17
-updated: 2026-08-17
-owner: Brijesh Patel
-change_summary: Initial catalogue. The forty-four patterns as retrieved on 2026-08-16, organised into six learning tiers, with the section order every pattern README follows.
----
-
 # Cloud pattern catalogue
 
 The contract for this repository. It records which patterns exist, what order they are best learned

@@ -1,13 +1,3 @@
----
-doc_id: leader-election-in-practice
-title: Leader Election in practice
-type: explanation
-version: 1.0.0
-status: active
-created: 2026-08-17
-updated: 2026-08-17
----
-
 # Leader Election in practice
 
 Supporting material for [the Leader Election pattern](../README.md).

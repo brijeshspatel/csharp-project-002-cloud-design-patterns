@@ -1,13 +1,3 @@
----
-doc_id: publisher-subscriber-in-practice
-title: Publisher-Subscriber in practice
-type: explanation
-version: 1.0.0
-status: active
-created: 2026-08-17
-updated: 2026-08-17
----
-
 # Publisher-Subscriber in practice
 
 Supporting material for [the Publisher-Subscriber pattern](../README.md).

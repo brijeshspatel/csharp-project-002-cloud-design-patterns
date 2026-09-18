@@ -1,13 +1,3 @@
----
-doc_id: gatekeeper-in-practice
-title: Gatekeeper in practice
-type: explanation
-version: 1.0.0
-status: active
-created: 2026-08-18
-updated: 2026-08-18
----
-
 # Gatekeeper in practice
 
 Supporting material for [the Gatekeeper pattern](../README.md).

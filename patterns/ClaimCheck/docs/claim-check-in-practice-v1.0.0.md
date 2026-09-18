@@ -1,13 +1,3 @@
----
-doc_id: claim-check-in-practice
-title: Claim Check in practice
-type: explanation
-version: 1.0.0
-status: active
-created: 2026-08-17
-updated: 2026-08-17
----
-
 # Claim Check in practice
 
 Supporting material for [the Claim Check pattern](../README.md).

@@ -1,13 +1,3 @@
----
-doc_id: index-table-in-practice
-title: Index Table in practice
-type: explanation
-version: 1.0.0
-status: active
-created: 2026-08-17
-updated: 2026-08-17
----
-
 # Index Table in practice
 
 Supporting material for [the Index Table pattern](../README.md).

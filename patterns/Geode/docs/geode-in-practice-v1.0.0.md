@@ -1,13 +1,3 @@
----
-doc_id: geode-in-practice
-title: Geode in practice
-type: explanation
-version: 1.0.0
-status: active
-created: 2026-08-18
-updated: 2026-08-18
----
-
 # Geode in practice
 
 Supporting material for [the Geode pattern](../README.md).

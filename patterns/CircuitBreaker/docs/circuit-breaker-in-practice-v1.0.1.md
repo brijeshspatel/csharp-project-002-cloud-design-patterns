@@ -1,13 +1,3 @@
----
-doc_id: circuit-breaker-in-practice
-title: Circuit Breaker in practice
-type: explanation
-version: 1.0.1
-status: active
-created: 2026-08-17
-updated: 2026-08-18
----
-
 # Circuit Breaker in practice
 
 Supporting material for [the Circuit Breaker pattern](../README.md). The README says what the

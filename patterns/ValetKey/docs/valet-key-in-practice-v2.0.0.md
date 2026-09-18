@@ -1,13 +1,3 @@
----
-doc_id: valet-key-in-practice
-title: Valet Key in practice
-type: explanation
-version: 2.0.0
-status: active
-created: 2026-08-17
-updated: 2026-08-18
----
-
 # Valet Key in practice
 
 Supporting material for [the Valet Key pattern](../README.md).

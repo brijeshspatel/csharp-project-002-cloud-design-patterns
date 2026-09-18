@@ -1,13 +1,3 @@
----
-doc_id: cache-aside-in-practice
-title: Cache-Aside in practice
-type: explanation
-version: 1.0.0
-status: active
-created: 2026-08-17
-updated: 2026-08-17
----
-
 # Cache-Aside in practice
 
 Supporting material for [the Cache-Aside pattern](../README.md).

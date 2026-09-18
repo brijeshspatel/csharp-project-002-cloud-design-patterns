@@ -1,13 +1,3 @@
----
-doc_id: sidecar-in-practice
-title: Sidecar in practice
-type: explanation
-version: 1.0.0
-status: active
-created: 2026-08-18
-updated: 2026-08-18
----
-
 # Sidecar in practice
 
 Supporting material for [the Sidecar pattern](../README.md).

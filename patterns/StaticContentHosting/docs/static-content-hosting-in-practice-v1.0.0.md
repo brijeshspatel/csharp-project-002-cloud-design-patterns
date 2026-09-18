@@ -1,13 +1,3 @@
----
-doc_id: static-content-hosting-in-practice
-title: Static Content Hosting in practice
-type: explanation
-version: 1.0.0
-status: active
-created: 2026-08-17
-updated: 2026-08-17
----
-
 # Static Content Hosting in practice
 
 Supporting material for [the Static Content Hosting pattern](../README.md).

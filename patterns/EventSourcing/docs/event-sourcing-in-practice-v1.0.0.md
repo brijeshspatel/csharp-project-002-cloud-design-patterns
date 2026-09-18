@@ -1,13 +1,3 @@
----
-doc_id: event-sourcing-in-practice
-title: Event Sourcing in practice
-type: explanation
-version: 1.0.0
-status: active
-created: 2026-08-17
-updated: 2026-08-17
----
-
 # Event Sourcing in practice
 
 Supporting material for [the Event Sourcing pattern](../README.md).

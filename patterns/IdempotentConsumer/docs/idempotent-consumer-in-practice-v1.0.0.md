@@ -1,13 +1,3 @@
----
-doc_id: idempotent-consumer-in-practice
-title: Idempotent Consumer in practice
-type: explanation
-version: 1.0.0
-status: active
-created: 2026-08-17
-updated: 2026-08-17
----
-
 # Idempotent Consumer in practice
 
 Supporting material for [the Idempotent Consumer pattern](../README.md).

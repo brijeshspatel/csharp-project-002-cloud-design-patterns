@@ -1,13 +1,3 @@
----
-doc_id: pipes-and-filters-in-practice
-title: Pipes and Filters in practice
-type: explanation
-version: 1.0.0
-status: active
-created: 2026-08-17
-updated: 2026-08-17
----
-
 # Pipes and Filters in practice
 
 Supporting material for [the Pipes and Filters pattern](../README.md).

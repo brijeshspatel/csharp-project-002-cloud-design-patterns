@@ -1,13 +1,3 @@
----
-doc_id: health-endpoint-monitoring-in-practice
-title: Health Endpoint Monitoring in practice
-type: explanation
-version: 1.0.0
-status: active
-created: 2026-08-17
-updated: 2026-08-17
----
-
 # Health Endpoint Monitoring in practice
 
 Supporting material for [the Health Endpoint Monitoring pattern](../README.md).

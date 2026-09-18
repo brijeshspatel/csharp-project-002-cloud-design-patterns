@@ -1,13 +1,3 @@
----
-doc_id: competing-consumers-in-practice
-title: Competing Consumers in practice
-type: explanation
-version: 1.0.0
-status: active
-created: 2026-08-17
-updated: 2026-08-17
----
-
 # Competing Consumers in practice
 
 Supporting material for [the Competing Consumers pattern](../README.md).

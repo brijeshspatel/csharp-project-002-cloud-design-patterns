@@ -1,13 +1,3 @@
----
-doc_id: materialized-view-in-practice
-title: Materialized View in practice
-type: explanation
-version: 1.0.0
-status: active
-created: 2026-08-17
-updated: 2026-08-17
----
-
 # Materialized View in practice
 
 Supporting material for [the Materialized View pattern](../README.md).

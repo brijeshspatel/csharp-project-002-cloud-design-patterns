@@ -1,13 +1,3 @@
----
-doc_id: retry-in-practice
-title: Retry in practice
-type: explanation
-version: 1.0.0
-status: active
-created: 2026-08-17
-updated: 2026-08-17
----
-
 # Retry in practice
 
 Supporting material for [the Retry pattern](../README.md). The README says what the pattern is and

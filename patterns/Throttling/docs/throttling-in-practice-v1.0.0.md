@@ -1,13 +1,3 @@
----
-doc_id: throttling-in-practice
-title: Throttling in practice
-type: explanation
-version: 1.0.0
-status: active
-created: 2026-08-17
-updated: 2026-08-17
----
-
 # Throttling in practice
 
 Supporting material for [the Throttling pattern](../README.md).

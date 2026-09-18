@@ -1,13 +1,3 @@
----
-doc_id: deployment-stamps-in-practice
-title: Deployment Stamps in practice
-type: explanation
-version: 1.0.0
-status: active
-created: 2026-08-18
-updated: 2026-08-18
----
-
 # Deployment Stamps in practice
 
 Supporting material for [the Deployment Stamps pattern](../README.md).

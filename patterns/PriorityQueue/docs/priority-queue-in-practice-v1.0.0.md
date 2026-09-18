@@ -1,13 +1,3 @@
----
-doc_id: priority-queue-in-practice
-title: Priority Queue in practice
-type: explanation
-version: 1.0.0
-status: active
-created: 2026-08-17
-updated: 2026-08-17
----
-
 # Priority Queue in practice
 
 Supporting material for [the Priority Queue pattern](../README.md).

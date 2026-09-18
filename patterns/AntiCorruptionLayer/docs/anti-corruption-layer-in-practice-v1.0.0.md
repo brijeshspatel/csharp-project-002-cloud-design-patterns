@@ -1,13 +1,3 @@
----
-doc_id: anti-corruption-layer-in-practice
-title: Anti-Corruption Layer in practice
-type: explanation
-version: 1.0.0
-status: active
-created: 2026-08-18
-updated: 2026-08-18
----
-
 # Anti-Corruption Layer in practice
 
 Supporting material for [the Anti-Corruption Layer pattern](../README.md).

@@ -1,13 +1,3 @@
----
-doc_id: quarantine-in-practice
-title: Quarantine in practice
-type: explanation
-version: 1.0.0
-status: active
-created: 2026-08-18
-updated: 2026-08-18
----
-
 # Quarantine in practice
 
 Supporting material for [the Quarantine pattern](../README.md).

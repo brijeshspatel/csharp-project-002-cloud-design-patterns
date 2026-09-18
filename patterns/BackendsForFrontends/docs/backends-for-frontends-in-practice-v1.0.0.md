@@ -1,13 +1,3 @@
----
-doc_id: backends-for-frontends-in-practice
-title: Backends for Frontends in practice
-type: explanation
-version: 1.0.0
-status: active
-created: 2026-08-18
-updated: 2026-08-18
----
-
 # Backends for Frontends in practice
 
 Supporting material for [the Backends for Frontends pattern](../README.md).

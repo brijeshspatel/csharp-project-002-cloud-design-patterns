@@ -1,13 +1,3 @@
----
-doc_id: compensating-transaction-in-practice
-title: Compensating Transaction in practice
-type: explanation
-version: 1.0.0
-status: active
-created: 2026-08-17
-updated: 2026-08-17
----
-
 # Compensating Transaction in practice
 
 Supporting material for [the Compensating Transaction pattern](../README.md).

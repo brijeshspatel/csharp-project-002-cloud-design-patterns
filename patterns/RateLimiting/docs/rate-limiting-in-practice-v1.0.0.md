@@ -1,13 +1,3 @@
----
-doc_id: rate-limiting-in-practice
-title: Rate Limiting in practice
-type: explanation
-version: 1.0.0
-status: active
-created: 2026-08-17
-updated: 2026-08-17
----
-
 # Rate Limiting in practice
 
 Supporting material for [the Rate Limiting pattern](../README.md).

@@ -1,13 +1,3 @@
----
-doc_id: sharding-in-practice
-title: Sharding in practice
-type: explanation
-version: 1.0.0
-status: active
-created: 2026-08-17
-updated: 2026-08-17
----
-
 # Sharding in practice
 
 Supporting material for [the Sharding pattern](../README.md).

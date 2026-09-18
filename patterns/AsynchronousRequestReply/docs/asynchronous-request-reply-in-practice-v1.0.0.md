@@ -1,13 +1,3 @@
----
-doc_id: asynchronous-request-reply-in-practice
-title: Asynchronous Request-Reply in practice
-type: explanation
-version: 1.0.0
-status: active
-created: 2026-08-17
-updated: 2026-08-17
----
-
 # Asynchronous Request-Reply in practice
 
 Supporting material for [the Asynchronous Request-Reply pattern](../README.md).

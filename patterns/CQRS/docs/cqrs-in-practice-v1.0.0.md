@@ -1,13 +1,3 @@
----
-doc_id: cqrs-in-practice
-title: CQRS in practice
-type: explanation
-version: 1.0.0
-status: active
-created: 2026-08-17
-updated: 2026-08-17
----
-
 # CQRS in practice
 
 Supporting material for [the CQRS pattern](../README.md).

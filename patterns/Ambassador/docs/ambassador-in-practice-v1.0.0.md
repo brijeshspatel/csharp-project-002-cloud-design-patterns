@@ -1,13 +1,3 @@
----
-doc_id: ambassador-in-practice
-title: Ambassador in practice
-type: explanation
-version: 1.0.0
-status: active
-created: 2026-08-18
-updated: 2026-08-18
----
-
 # Ambassador in practice
 
 Supporting material for [the Ambassador pattern](../README.md).

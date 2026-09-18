@@ -146,6 +146,7 @@
     ]
   },
   "metadata": {
+    "frontmatter_required": false,
     "required_keys": [
       "doc_id",
       "title",

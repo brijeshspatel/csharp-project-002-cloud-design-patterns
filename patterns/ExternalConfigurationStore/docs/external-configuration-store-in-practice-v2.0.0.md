@@ -1,13 +1,3 @@
----
-doc_id: external-configuration-store-in-practice
-title: External Configuration Store in practice
-type: explanation
-version: 2.0.0
-status: active
-created: 2026-08-18
-updated: 2026-08-18
----
-
 # External Configuration Store in practice
 
 Supporting material for [the External Configuration Store pattern](../README.md).

@@ -1,13 +1,3 @@
----
-doc_id: bulkhead-in-practice
-title: Bulkhead in practice
-type: explanation
-version: 1.0.0
-status: active
-created: 2026-08-17
-updated: 2026-08-17
----
-
 # Bulkhead in practice
 
 Supporting material for [the Bulkhead pattern](../README.md).

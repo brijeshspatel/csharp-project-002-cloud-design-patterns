@@ -1,13 +1,3 @@
----
-doc_id: compute-resource-consolidation-in-practice
-title: Compute Resource Consolidation in practice
-type: explanation
-version: 1.0.1
-status: active
-created: 2026-08-18
-updated: 2026-08-18
----
-
 # Compute Resource Consolidation in practice
 
 Supporting material for [the Compute Resource Consolidation pattern](../README.md).

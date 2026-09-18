@@ -1,13 +1,3 @@
----
-doc_id: gateway-offloading-in-practice
-title: Gateway Offloading in practice
-type: explanation
-version: 1.0.0
-status: active
-created: 2026-08-17
-updated: 2026-08-17
----
-
 # Gateway Offloading in practice
 
 Supporting material for [the Gateway Offloading pattern](../README.md).

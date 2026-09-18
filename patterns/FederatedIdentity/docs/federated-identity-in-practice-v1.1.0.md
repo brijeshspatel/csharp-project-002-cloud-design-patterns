@@ -1,13 +1,3 @@
----
-doc_id: federated-identity-in-practice
-title: Federated Identity in practice
-type: explanation
-version: 1.1.0
-status: active
-created: 2026-08-18
-updated: 2026-08-18
----
-
 # Federated Identity in practice
 
 Supporting material for [the Federated Identity pattern](../README.md).
