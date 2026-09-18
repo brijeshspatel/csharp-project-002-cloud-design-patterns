@@ -54,7 +54,7 @@ flowchart LR
     P -->|"valid"| S1["orders<br/>no token code"]
     P --> S2["catalogue<br/>no token code"]
     P --> S3["accounts<br/>no token code"]
-    P -.->|"expired token:<br/>refused, no service reached"| X["refused"]
+    P -.->|"expired token —<br/>refused, no service reached"| X["refused"]
 ```
 
 | Participant | Role |
